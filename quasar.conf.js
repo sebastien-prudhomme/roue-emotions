@@ -12,10 +12,7 @@ module.exports = function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
-    boot: [
-
-      'i18n'
-    ],
+    boot: [],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
@@ -33,7 +30,8 @@ module.exports = function (/* ctx */) {
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
+      'fontawesome-v5'
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
@@ -114,9 +112,9 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'Roue des Émotions',
-        short_name: 'Roue des Émotions',
-        description: 'Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux',
+        name: 'Ma roue des émotions',
+        short_name: 'Ma roue des émotions',
+        description: 'Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux.',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -154,7 +152,7 @@ module.exports = function (/* ctx */) {
     // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
     cordova: {
       // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
-      id: 'org.cordova.quasar.app'
+      id: 'com.cowboysysop.roue_emotions'
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-capacitor-apps/configuring-capacitor
@@ -182,7 +180,7 @@ module.exports = function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'roue-emotions'
+        appId: 'com.cowboysysop.roue_emotions'
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration

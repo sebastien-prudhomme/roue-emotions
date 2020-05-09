@@ -1,6 +1,6 @@
-# Roue des Émotions (roue-emotions)
+# Ma roue des émotions (roue-emotions)
 
-Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux
+Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux.
 
 ## Install the dependencies
 ```bash
