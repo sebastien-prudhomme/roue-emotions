@@ -47,5 +47,36 @@ export default {
         'Penser à mon héros favori'
       ]
     }
+  },
+  mutations: {
+    createNeed: function (state, payload) {
+      // Vue wraps unshift() for reactivity
+      state.needs.unshift(payload.need)
+    },
+    removeNeed: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.needs.splice(payload.index, 1)
+    },
+    setNeeds: function (state, payload) {
+      state.needs = payload.needs
+    },
+    updateNeed: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.needs.splice(payload.index, 1, payload.need)
+    }
+  },
+  actions: {
+    createNeed: function (context, payload) {
+      context.commit('createNeed', payload)
+    },
+    removeNeed: function (context, payload) {
+      context.commit('removeNeed', payload)
+    },
+    setNeeds: function (context, payload) {
+      context.commit('setNeeds', payload)
+    },
+    updateNeed: function (context, payload) {
+      context.commit('updateNeed', payload)
+    }
   }
 }

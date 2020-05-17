@@ -18,10 +18,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.on-left
-  margin-right: 1vh
-.text-half
-  font-size: 2vh
-</style>

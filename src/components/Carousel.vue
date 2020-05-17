@@ -32,23 +32,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.inset-shadow
-  box-shadow: 0 1vh 1vh -1vh rgba(0, 0, 0, 0.7) inset !important
-.q-carousel--arrows-horizontal.q-carousel--with-padding .q-carousel__slide
-  padding-left: 8vh
-  padding-right: 8vh
-.q-carousel__next-arrow--horizontal,
-.q-carousel__prev-arrow--horizontal
-  bottom: 2vh
-  top: 2vh
-.q-carousel__next-arrow--horizontal
-  right: 2vh
-.q-carousel__prev-arrow--horizontal
-  left: 2vh
-.q-carousel__slide
-  padding: 2vh
-.rounded-borders
-  border-radius: 2vh
-</style>

@@ -2,9 +2,8 @@
   <q-layout view="hHh lpr fff">
     <q-header>
       <q-toolbar>
-        <q-toolbar-title>Ma roue des émotions</q-toolbar-title>
-        <q-btn flat icon="fas fa-cog" stretch to="/configuration" />
-        <q-btn flat icon="fas fa-question" stretch to="/about" />
+        <q-btn flat icon="fas fa-arrow-left" stretch to="/" />
+        <q-toolbar-title>À propos</q-toolbar-title>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -15,6 +14,6 @@
 
 <script>
 export default {
-  name: 'MainLayout'
+  name: 'AboutLayout'
 }
 </script>

@@ -33,8 +33,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.q-page
-  padding: 2vh 4vh 4vh 4vh
-</style>

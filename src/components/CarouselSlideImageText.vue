@@ -24,9 +24,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass">
-.q-carousel__slide .q-img
-  height: 22vh
-  width: 22vh
-</style>
