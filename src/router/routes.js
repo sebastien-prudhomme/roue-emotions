@@ -20,6 +20,20 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Configuration.vue') }
     ]
+  },
+  {
+    path: '/configuration/actions',
+    component: () => import('layouts/ConfigurationActionsLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ConfigurationActions.vue') }
+    ]
+  },
+  {
+    path: '/configuration/needs',
+    component: () => import('layouts/ConfigurationNeedsLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ConfigurationNeeds.vue') }
+    ]
   }
 ]
 

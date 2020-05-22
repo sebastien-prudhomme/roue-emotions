@@ -49,16 +49,31 @@ export default {
     }
   },
   mutations: {
+    createAction: function (state, payload) {
+      // Vue wraps unshift() for reactivity
+      state.actions.unshift(payload.action)
+    },
     createNeed: function (state, payload) {
       // Vue wraps unshift() for reactivity
       state.needs.unshift(payload.need)
+    },
+    removeAction: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.actions.splice(payload.index, 1)
     },
     removeNeed: function (state, payload) {
       // Vue wraps splice() for reactivity
       state.needs.splice(payload.index, 1)
     },
+    setActions: function (state, payload) {
+      state.actions = payload.actions
+    },
     setNeeds: function (state, payload) {
       state.needs = payload.needs
+    },
+    updateAction: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.actions.splice(payload.index, 1, payload.action)
     },
     updateNeed: function (state, payload) {
       // Vue wraps splice() for reactivity
@@ -66,14 +81,26 @@ export default {
     }
   },
   actions: {
+    createAction: function (context, payload) {
+      context.commit('createAction', payload)
+    },
     createNeed: function (context, payload) {
       context.commit('createNeed', payload)
+    },
+    removeAction: function (context, payload) {
+      context.commit('removeAction', payload)
     },
     removeNeed: function (context, payload) {
       context.commit('removeNeed', payload)
     },
+    setActions: function (context, payload) {
+      context.commit('setActions', payload)
+    },
     setNeeds: function (context, payload) {
       context.commit('setNeeds', payload)
+    },
+    updateAction: function (context, payload) {
+      context.commit('updateAction', payload)
     },
     updateNeed: function (context, payload) {
       context.commit('updateNeed', payload)
