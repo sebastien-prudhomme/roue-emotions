@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-4 column justify-between">
+  <q-page class="bg-yellow-4">
     <q-list class="q-gutter-y-md">
       <q-item class="bg-white inset-shadow rounded-borders" to="/configuration/needs">
         <q-item-section class="text-center">Mes besoins</q-item-section>

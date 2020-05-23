@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-4 column justify-between">
+  <q-page class="bg-yellow-4">
     <div class="text-center">J'ai besoin :</div>
     <q-list>
       <vue-draggable animation="150" class="q-gutter-y-md" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="needs">
