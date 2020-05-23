@@ -1,0 +1,21 @@
+export default {
+  about: 'About',
+  cancel: 'Cancel',
+  configuration: 'Configuration',
+  credits: 'Credits:',
+  edit: 'Edit',
+  i_can: 'I can:',
+  i_feel: 'I feel:',
+  i_need: 'I need:',
+  original_concept: 'Original concept:',
+  publisher: 'Publisher:',
+  my_actions: 'My actions',
+  my_needs: 'My needs',
+  my_wheel_of_emotions: 'My wheel of emotions',
+  quasar_framework: 'Quasar framework',
+  remove: 'Remove',
+  remove_this_action: 'Remove this action?',
+  remove_this_need: 'Remove this need?',
+  save: 'Save',
+  schoolbell_font: 'Schoolbell font'
+}

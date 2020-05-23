@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
         <q-btn flat icon="fas fa-arrow-left" stretch to="/configuration" />
-        <q-toolbar-title>Mes actions</q-toolbar-title>
+        <q-toolbar-title>{{ $t('my_actions') }}</q-toolbar-title>
         <q-btn flat icon="fas fa-plus" stretch @click="createAction" />
       </q-toolbar>
     </q-header>
@@ -19,17 +19,17 @@ export default {
   methods: {
     createAction: function () {
       this.$q.dialog({
-        message: 'Je peux :',
+        message: this.$t('i_can'),
         prompt: {
           model: ''
         },
         ok: {
           flat: true,
-          label: 'Sauvegarder'
+          label: this.$t('save')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(action => {

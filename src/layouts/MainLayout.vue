@@ -2,7 +2,7 @@
   <q-layout view="hHh lpr fff">
     <q-header>
       <q-toolbar>
-        <q-toolbar-title>Ma roue des émotions</q-toolbar-title>
+        <q-toolbar-title>{{ $t('my_wheel_of_emotions') }}</q-toolbar-title>
         <q-btn flat icon="fas fa-cog" stretch to="/configuration" />
         <q-btn flat icon="fas fa-question" stretch to="/about" />
       </q-toolbar>

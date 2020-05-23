@@ -1,6 +1,6 @@
 <template>
   <q-page class="bg-yellow-4">
-    <div class="text-center">Je peux :</div>
+    <div class="text-center">{{ $t('i_can') }}</div>
     <q-list>
       <vue-draggable animation="150" class="q-gutter-y-md" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="actions">
         <q-item v-for="(action, index) in actions" class="bg-white inset-shadow rounded-borders" :key="index">
@@ -13,10 +13,10 @@
               <q-menu>
                 <q-list>
                   <q-item clickable v-close-popup @click="updateAction(index)">
-                    <q-item-section>Éditer</q-item-section>
+                    <q-item-section>{{ $t('edit') }}</q-item-section>
                   </q-item>
                   <q-item clickable v-close-popup @click="removeAction(index)">
-                    <q-item-section>Supprimer</q-item-section>
+                    <q-item-section>{{ $t('remove') }}</q-item-section>
                   </q-item>
                 </q-list>
               </q-menu>
@@ -59,14 +59,14 @@ export default {
   methods: {
     removeAction: function (index) {
       this.$q.dialog({
-        message: 'Supprimer cette action ?',
+        message: this.$t('remove_this_action'),
         ok: {
           flat: true,
-          label: 'Supprimer'
+          label: this.$t('remove')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(() => {
@@ -75,17 +75,17 @@ export default {
     },
     updateAction: function (index) {
       this.$q.dialog({
-        message: 'Je peux :',
+        message: this.$t('i_can'),
         prompt: {
           model: this.$store.state.configuration.actions[index]
         },
         ok: {
           flat: true,
-          label: 'Sauvegarder'
+          label: this.$t('save')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(action => {

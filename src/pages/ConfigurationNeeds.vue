@@ -1,6 +1,6 @@
 <template>
   <q-page class="bg-yellow-4">
-    <div class="text-center">J'ai besoin :</div>
+    <div class="text-center">{{ $t('i_need') }}</div>
     <q-list>
       <vue-draggable animation="150" class="q-gutter-y-md" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="needs">
         <q-item v-for="(need, index) in needs" class="bg-white inset-shadow rounded-borders" :key="index">
@@ -13,10 +13,10 @@
               <q-menu>
                 <q-list>
                   <q-item clickable v-close-popup @click="updateNeed(index)">
-                    <q-item-section>Éditer</q-item-section>
+                    <q-item-section>{{ $t('edit') }}</q-item-section>
                   </q-item>
                   <q-item clickable v-close-popup @click="removeNeed(index)">
-                    <q-item-section>Supprimer</q-item-section>
+                    <q-item-section>{{ $t('remove') }}</q-item-section>
                   </q-item>
                 </q-list>
               </q-menu>
@@ -59,14 +59,14 @@ export default {
   methods: {
     removeNeed: function (index) {
       this.$q.dialog({
-        message: 'Supprimer ce besoin ?',
+        message: this.$t('remove_this_need'),
         ok: {
           flat: true,
-          label: 'Supprimer'
+          label: this.$t('remove')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(() => {
@@ -75,17 +75,17 @@ export default {
     },
     updateNeed: function (index) {
       this.$q.dialog({
-        message: 'J\'ai besoin :',
+        message: this.$t('i_need'),
         prompt: {
           model: this.$store.state.configuration.needs[index]
         },
         ok: {
           flat: true,
-          label: 'Sauvegarder'
+          label: this.$t('save')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(need => {

@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
         <q-btn flat icon="fas fa-arrow-left" stretch to="/" />
-        <q-toolbar-title>Configuration</q-toolbar-title>
+        <q-toolbar-title>{{ $t('configuration') }}</q-toolbar-title>
       </q-toolbar>
     </q-header>
     <q-page-container>

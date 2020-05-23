@@ -1,12 +1,12 @@
 <template>
   <q-page class="bg-yellow-4 column justify-between">
-    <carousel height="32vh" title="Éditeur :">
+    <carousel height="32vh" :title="$t('publisher')">
       <carousel-slide-editor name="0" />
     </carousel>
-    <carousel height="16vh" title="Concept original :">
+    <carousel height="16vh" :title="$t('original_concept')">
       <carousel-slide-concept name="0" />
     </carousel>
-    <carousel height="16vh" title="Crédits :">
+    <carousel height="16vh" :title="$t('credits')">
       <carousel-slide-credit-quasar name="0" />
       <carousel-slide-credit-font name="1" />
     </carousel>

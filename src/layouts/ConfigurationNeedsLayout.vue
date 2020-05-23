@@ -3,7 +3,7 @@
     <q-header>
       <q-toolbar>
         <q-btn flat icon="fas fa-arrow-left" stretch to="/configuration" />
-        <q-toolbar-title>Mes besoins</q-toolbar-title>
+        <q-toolbar-title>{{ $t('my_needs') }}</q-toolbar-title>
         <q-btn flat icon="fas fa-plus" stretch @click="createNeed" />
       </q-toolbar>
     </q-header>
@@ -19,17 +19,17 @@ export default {
   methods: {
     createNeed: function () {
       this.$q.dialog({
-        message: 'J\'ai besoin :',
+        message: this.$t('i_need'),
         prompt: {
           model: ''
         },
         ok: {
           flat: true,
-          label: 'Sauvegarder'
+          label: this.$t('save')
         },
         cancel: {
           flat: true,
-          label: 'Annuler'
+          label: this.$t('cancel')
         },
         persistent: true
       }).onOk(need => {

@@ -1,6 +1,6 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
-    <div class="text-center">Cadriciel Quasar</div>
+    <div class="text-center">{{ $t('quasar_framework') }}</div>
     <div class="text-center text-half" @click="open">
       <q-icon left name="fas fa-globe" />quasar.dev
     </div>
