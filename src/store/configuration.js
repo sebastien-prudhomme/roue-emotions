@@ -3,8 +3,6 @@ import { i18n } from '../boot/i18n'
 export default {
   namespaced: true,
   state () {
-    console.log(i18n.locale)
-    console.log(i18n.locale.messages)
     return {
       feelings: [
         i18n.t('feelings.tired'),
