@@ -12,15 +12,15 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "1.7.0",
+    "@quasar/extras": "1.8.1",
     "langtag-utils": "2.0.1",
-    "quasar": "1.10.4",
+    "quasar": "1.11.3",
     "vue-i18n": "8.17.7",
     "vuedraggable": "2.23.2",
     "vuex-persistedstate": "3.0.1"
   },
   "devDependencies": {
-    "@quasar/app": "1.8.4",
+    "@quasar/app": "1.8.10",
     "@quasar/icongenie": "2.2.0",
     "babel-eslint": "10.1.0",
     "eslint": "6.8.0",
