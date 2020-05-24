@@ -1,50 +1,54 @@
+import { i18n } from '../boot/i18n'
+
 export default {
   namespaced: true,
   state () {
+    console.log(i18n.locale)
+    console.log(i18n.locale.messages)
     return {
       feelings: [
-        'Fatigué/Fatiguée',
-        'Vexé/Vexée',
-        'Calme',
-        'Content/Contente',
-        'Joyeux/Joyeuse',
-        'En colère',
-        'Jaloux/Jalouse',
-        'Effrayé/Effrayée',
-        'Triste',
-        'Déçu/Déçue'
+        i18n.t('feelings.tired'),
+        i18n.t('feelings.offended'),
+        i18n.t('feelings.calm'),
+        i18n.t('feelings.happy'),
+        i18n.t('feelings.joyful'),
+        i18n.t('feelings.angry'),
+        i18n.t('feelings.jealous'),
+        i18n.t('feelings.scared'),
+        i18n.t('feelings.sad'),
+        i18n.t('feelings.disappointed')
       ],
       needs: [
-        'De me reposer',
-        'De me défouler',
-        'D\'aide',
-        'De soutien',
-        'De pleurer',
-        'De demander pardon',
-        'De rigoler',
-        'De prendre soin de moi',
-        'De tendresse',
-        'De calme',
-        'D\'encouragement',
-        'D\'être seul/seule'
+        i18n.t('needs.to_rest'),
+        i18n.t('needs.to_let_off_steam'),
+        i18n.t('needs.help'),
+        i18n.t('needs.support'),
+        i18n.t('needs.to_cry'),
+        i18n.t('needs.to_ask_for_forgiveness'),
+        i18n.t('needs.to_laugh'),
+        i18n.t('needs.to_take_care_of_myself'),
+        i18n.t('needs.tenderness'),
+        i18n.t('needs.quiet'),
+        i18n.t('needs.encouragement'),
+        i18n.t('needs.to_be_alone')
       ],
       actions: [
-        'Demander un temps de silence',
-        'Demander des informations',
-        'Attirer l\'attention',
-        'Parler à quelqu\'un',
-        'Aller dans un endroit calme',
-        'Laisser couler mes larmes',
-        'Penser à mes qualités',
-        'Aller boire de l\'eau',
-        'Faire un exercice de respiration',
-        'Raconter une blague',
-        'Dessiner',
-        'Chanter et/ou danser',
-        'Demander un massage',
-        'Sortir prendre l\'air',
-        'Rassembler mon courage',
-        'Penser à mon héros favori'
+        i18n.t('actions.ask_for_a_time_of_silence'),
+        i18n.t('actions.ask_for_information'),
+        i18n.t('actions.draw_attention'),
+        i18n.t('actions.talk_to_someone'),
+        i18n.t('actions.go_somewhere_quiet'),
+        i18n.t('actions.let_my_tears_flow'),
+        i18n.t('actions.think_of_my_qualities'),
+        i18n.t('actions.get_a_drink_of_water'),
+        i18n.t('actions.do_a_breathing_exercise'),
+        i18n.t('actions.tell_a_joke'),
+        i18n.t('actions.draw'),
+        i18n.t('actions.sing_and_or_dance'),
+        i18n.t('actions.ask_for_a_massage'),
+        i18n.t('actions.go_out_to_get_some_fresh_air'),
+        i18n.t('actions.muster_my_courage'),
+        i18n.t('actions.think_of_my_favorite_hero')
       ]
     }
   },
