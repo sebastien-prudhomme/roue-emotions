@@ -12,6 +12,7 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@hapi/joi": "17.1.1",
     "@quasar/extras": "1.8.1",
     "langtag-utils": "2.0.1",
     "quasar": "1.11.3",

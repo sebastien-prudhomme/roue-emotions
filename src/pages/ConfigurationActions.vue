@@ -29,6 +29,9 @@
 </template>
 
 <script>
+import validate from '../helpers/validate'
+import Joi from '@hapi/joi'
+
 export default {
   name: 'ConfigurationActions',
   components: {
@@ -77,6 +80,7 @@ export default {
       this.$q.dialog({
         message: this.$t('i_can'),
         prompt: {
+          isValid: validate(Joi.string().trim().min(1)),
           model: this.$store.state.configuration.actions[index]
         },
         ok: {

@@ -14,6 +14,9 @@
 </template>
 
 <script>
+import validate from '../helpers/validate'
+import Joi from '@hapi/joi'
+
 export default {
   name: 'ConfigurationNeedsLayout',
   methods: {
@@ -21,6 +24,7 @@ export default {
       this.$q.dialog({
         message: this.$t('i_need'),
         prompt: {
+          isValid: validate(Joi.string().trim().min(1)),
           model: ''
         },
         ok: {

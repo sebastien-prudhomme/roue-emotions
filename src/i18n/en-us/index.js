@@ -63,5 +63,10 @@ export default {
   remove_this_need: 'Remove this need?',
   save: 'Save',
   schoolbell_font: 'Schoolbell font',
+  validate: {
+    string: {
+      empty: 'Must not be empty'
+    }
+  },
   version: 'Version:'
 }

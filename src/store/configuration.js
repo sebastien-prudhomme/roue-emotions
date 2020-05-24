@@ -53,11 +53,11 @@ export default {
   mutations: {
     createAction: function (state, payload) {
       // Vue wraps unshift() for reactivity
-      state.actions.unshift(payload.action)
+      state.actions.unshift(payload.action.trim())
     },
     createNeed: function (state, payload) {
       // Vue wraps unshift() for reactivity
-      state.needs.unshift(payload.need)
+      state.needs.unshift(payload.need.trim())
     },
     removeAction: function (state, payload) {
       // Vue wraps splice() for reactivity
@@ -75,11 +75,11 @@ export default {
     },
     updateAction: function (state, payload) {
       // Vue wraps splice() for reactivity
-      state.actions.splice(payload.index, 1, payload.action)
+      state.actions.splice(payload.index, 1, payload.action.trim())
     },
     updateNeed: function (state, payload) {
       // Vue wraps splice() for reactivity
-      state.needs.splice(payload.index, 1, payload.need)
+      state.needs.splice(payload.index, 1, payload.need.trim())
     }
   },
   actions: {
