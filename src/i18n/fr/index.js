@@ -53,6 +53,7 @@ export default {
   },
   original_concept: 'Concept original :',
   publisher: 'Éditeur :',
+  privacy_policy: 'Politique de confidentialité',
   my_actions: 'Mes actions',
   my_needs: 'Mes besoins',
   my_wheel_of_emotions: 'Ma roue des émotions',
@@ -61,5 +62,6 @@ export default {
   remove_this_action: 'Supprimer cette action ?',
   remove_this_need: 'Supprimer ce besoin ?',
   save: 'Sauvegarder',
-  schoolbell_font: 'Police Schoolbell'
+  schoolbell_font: 'Police Schoolbell',
+  version: 'Version :'
 }

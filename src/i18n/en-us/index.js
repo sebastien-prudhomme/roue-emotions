@@ -53,6 +53,7 @@ export default {
   },
   original_concept: 'Original concept:',
   publisher: 'Publisher:',
+  privacy_policy: 'Privacy policy',
   my_actions: 'My actions',
   my_needs: 'My needs',
   my_wheel_of_emotions: 'My wheel of emotions',
@@ -61,5 +62,6 @@ export default {
   remove_this_action: 'Remove this action?',
   remove_this_need: 'Remove this need?',
   save: 'Save',
-  schoolbell_font: 'Schoolbell font'
+  schoolbell_font: 'Schoolbell font',
+  version: 'Version:'
 }
