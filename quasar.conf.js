@@ -166,7 +166,7 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/developing-electron-apps/configuring-electron
     electron: {
-      bundler: 'packager', // 'packager' or 'builder'
+      bundler: 'builder', // 'packager' or 'builder'
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -184,11 +184,32 @@ module.exports = function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'com.cowboysysop.roue_emotions'
+        appId: 'com.cowboysysop.roue_emotions',
+        artifactName: '${name}-${version}.${ext}',
+        linux: {
+          icon: 'src-electron/icons/icon.png',
+          target: [
+            'appimage',
+            'tar.gz'
+          ]
+        },
+        mac: {
+          icon: 'src-electron/icons/icon.icns',
+          target: [
+            'tar.gz'
+          ]
+        },
+        win: {
+          icon: 'src-electron/icons/icon.ico',
+          target: [
+            'portable',
+            'tar.gz'
+          ]
+        }
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
-      nodeIntegration: true,
+      nodeIntegration: false,
 
       extendWebpack (/* cfg */) {
         // do something with Electron main process Webpack cfg
