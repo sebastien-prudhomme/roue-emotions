@@ -50,13 +50,12 @@ export default {
       const vh = window.innerHeight / 100
       const sensitivity = 8 * vh
 
-      return sensitivity + 8 * vh // Take header into account
-      // return {
-      //   top: sensitivity + 8 * vh, // Take header into account
-      //   bottom: sensitivity,
-      //   left: 0,
-      //   right: 0
-      // }
+      return {
+        top: sensitivity + 8 * vh, // Take header into account
+        bottom: sensitivity,
+        left: 0,
+        right: 0
+      }
     }
   },
   methods: {
