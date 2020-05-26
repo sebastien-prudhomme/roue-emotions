@@ -2,7 +2,7 @@
   <q-page class="bg-yellow-4">
     <div class="text-center">{{ $t('i_need') }}</div>
     <q-list>
-      <vue-draggable animation="150" class="q-gutter-y-md" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="needs">
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="needs">
         <q-item v-for="(need, index) in needs" class="bg-white inset-shadow rounded-borders" :key="index">
           <q-item-section avatar>
             <q-icon color="primary" name="fas fa-arrows-alt-v" />
