@@ -10,10 +10,8 @@
       <carousel-slide-credit-quasar name="0" />
       <carousel-slide-credit-font name="1" />
     </carousel>
-    <div class="row items-end justify-between" style="height: 8vh;">
-      <div class="text-half" @click="open">
-        <q-icon left name="fas fa-globe" />{{ $t('privacy_policy') }}
-      </div>
+    <div class="row items-center justify-between" style="height: 8vh;">
+      <q-btn class="icon-half text-half" flat icon="fas fa-globe" :label="$t('privacy_policy')" no-caps rounded @click="open" />
       <div class="text-half">
         {{ $t('version') }} {{ version }}
       </div>

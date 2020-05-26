@@ -1,9 +1,7 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
     <div class="text-center">Sébastien Prud'homme</div>
-    <div class="text-center text-half" @click="open">
-      <q-icon left name="fab fa-twitter" />@sebasprud
-    </div>
+    <q-btn class="icon-half text-half" flat icon="fab fa-twitter" label="@sebasprud" no-caps rounded @click="open" />
   </q-carousel-slide>
 </template>
 

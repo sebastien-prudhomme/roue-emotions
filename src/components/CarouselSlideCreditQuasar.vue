@@ -1,9 +1,7 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
     <div class="text-center">{{ $t('quasar_framework') }}</div>
-    <div class="text-center text-half" @click="open">
-      <q-icon left name="fas fa-globe" />quasar.dev
-    </div>
+    <q-btn class="icon-half text-half" flat icon="fas fa-globe" label="quasar.dev" no-caps rounded @click="open" />
   </q-carousel-slide>
 </template>
 

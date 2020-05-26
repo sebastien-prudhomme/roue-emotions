@@ -1,9 +1,7 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
     <div class="text-center">{{ $t('schoolbell_font') }}</div>
-    <div class="text-center text-half" @click="open">
-      <q-icon left name="fas fa-globe" />fonts.google.com
-    </div>
+    <q-btn class="icon-half text-half" flat icon="fas fa-globe" label="fonts.google.com" no-caps rounded @click="open" />
   </q-carousel-slide>
 </template>
 
