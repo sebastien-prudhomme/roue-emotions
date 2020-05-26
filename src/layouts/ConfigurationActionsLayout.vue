@@ -29,11 +29,13 @@ export default {
         },
         ok: {
           flat: true,
-          label: this.$t('save')
+          label: this.$t('save'),
+          rounded: true
         },
         cancel: {
           flat: true,
-          label: this.$t('cancel')
+          label: this.$t('cancel'),
+          rounded: true
         },
         persistent: true
       }).onOk(action => {

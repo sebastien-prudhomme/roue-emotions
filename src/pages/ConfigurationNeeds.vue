@@ -65,11 +65,13 @@ export default {
         message: this.$t('remove_this_need'),
         ok: {
           flat: true,
-          label: this.$t('remove')
+          label: this.$t('remove'),
+          rounded: true
         },
         cancel: {
           flat: true,
-          label: this.$t('cancel')
+          label: this.$t('cancel'),
+          rounded: true
         },
         persistent: true
       }).onOk(() => {
@@ -85,11 +87,13 @@ export default {
         },
         ok: {
           flat: true,
-          label: this.$t('save')
+          label: this.$t('save'),
+          rounded: true
         },
         cancel: {
           flat: true,
-          label: this.$t('cancel')
+          label: this.$t('cancel'),
+          rounded: true
         },
         persistent: true
       }).onOk(need => {
