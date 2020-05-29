@@ -190,21 +190,19 @@ module.exports = function (/* ctx */) {
         linux: {
           icon: 'src-electron/icons/icon.png',
           target: [
-            'appimage',
-            'tar.gz'
+            'appimage'
           ]
         },
         mac: {
           icon: 'src-electron/icons/icon.icns',
           target: [
-            'tar.gz'
+            'dmg'
           ]
         },
         win: {
           icon: 'src-electron/icons/icon.ico',
           target: [
-            'portable',
-            'tar.gz'
+            'portable'
           ]
         }
       },
