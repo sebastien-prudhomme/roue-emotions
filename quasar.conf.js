@@ -189,7 +189,7 @@ module.exports = function (/* ctx */) {
         appId: 'com.cowboysysop.roue_emotions',
         artifactName: '${name}-${version}.${ext}',
         linux: {
-          icon: 'src-electron/icons/icon.png',
+          icon: 'src-electron/icons/linux-512x512.png',
           target: [
             'appimage'
           ]
