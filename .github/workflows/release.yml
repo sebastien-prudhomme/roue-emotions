@@ -6,6 +6,43 @@ on:
       - '*'
 
 jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+
+      - name: Install Node Packages
+        run: npm ci
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Build Android Package
+        run: npx quasar build -m cordova -T android -- -- --packageType=bundle
+
+      - name: Sign Android Package
+        id: sign-android-package
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: src-cordova/platforms/android/app/build/outputs/bundle/release
+          signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+          keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+
+      - name: Upload Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
+          packageName: com.cowboysysop.roue_emotions
+          releaseFile: ${{ steps.sign-android-package.outputs.signedReleaseFile }}
+          track: internal
+
   build-linux:
     runs-on: ubuntu-latest
     steps:
@@ -20,14 +57,14 @@ jobs:
       - name: Install Node Packages
         run: npm ci
 
-      - name: Build Electron Packages
+      - name: Build Linux Package
         run: npx quasar build -m electron -T linux
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Tag
-        uses: olegtarasov/get-tag@v2
         id: get-tag
+        uses: olegtarasov/get-tag@v2
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -49,14 +86,14 @@ jobs:
       - name: Install Node Packages
         run: npm ci
 
-      - name: Build Electron Packages
+      - name: Build Windows Package
         run: npx quasar build -m electron -T win
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get Tag
-        uses: olegtarasov/get-tag@v2
         id: get-tag
+        uses: olegtarasov/get-tag@v2
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -83,8 +120,8 @@ jobs:
         uses: actions/download-artifact@v2
 
       - name: Get Tag
-        uses: olegtarasov/get-tag@v2
         id: get-tag
+        uses: olegtarasov/get-tag@v2
 
       - name: Upload Linux Release Asset
         uses: actions/upload-release-asset@v1
