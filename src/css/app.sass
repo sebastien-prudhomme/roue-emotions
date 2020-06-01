@@ -64,6 +64,9 @@ body
   height: 22vh
   width: 22vh
 
+.q-dialog__inner--minimized
+  padding: 2vh // default: 24px
+
 .q-dialog__inner > div
   border-radius: 2vh  // default: 4px
 
@@ -73,11 +76,24 @@ body
 .q-field
   font-size: 4vh // default: 14px
 
+.q-field__bottom
+  min-height: 4vh // default: 12px
+  padding: 1vh 1vh 0 // default: 8px 12px 0
+
+.q-field__counter
+  padding-left: 1vh // default: 8px
+
+.q-field--dense .q-field__bottom
+  font-size: 3vh // default: 11px
+
 .q-field--dense .q-field__control
   height: 8vh // default: 40px
 
 .q-field__native
   padding: 2vh 0 // default: 6px 0
+
+.q-field--with-bottom
+  padding-bottom: 4vh // default: 20px
 
 .q-gutter-y-md
   margin-top: -2vh // default: -16px
