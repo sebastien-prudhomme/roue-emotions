@@ -81,7 +81,9 @@ export default {
       this.$q.dialog({
         message: this.$t('i_can'),
         prompt: {
+          counter: true,
           isValid: validate(Joi.string().trim().min(1)),
+          maxlength: 40,
           model: this.$store.state.configuration.actions[index]
         },
         ok: {

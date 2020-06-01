@@ -1,0 +1,17 @@
+diff --git a/node_modules/quasar/src/components/dialog-plugin/.DialogPlugin.js.swp b/node_modules/quasar/src/components/dialog-plugin/.DialogPlugin.js.swp
+new file mode 100644
+index 0000000..3b125bd
+Binary files /dev/null and b/node_modules/quasar/src/components/dialog-plugin/.DialogPlugin.js.swp differ
+diff --git a/node_modules/quasar/src/components/dialog-plugin/DialogPlugin.js b/node_modules/quasar/src/components/dialog-plugin/DialogPlugin.js
+index da10e99..c402afe 100644
+--- a/node_modules/quasar/src/components/dialog-plugin/DialogPlugin.js
++++ b/node_modules/quasar/src/components/dialog-plugin/DialogPlugin.js
+@@ -131,6 +131,8 @@ export default Vue.extend({
+             outlined: this.prompt.outlined,
+             filled: this.prompt.filled,
+             standout: this.prompt.standout,
++            counter: this.prompt.counter,
++            maxlength: this.prompt.maxlength,
+             color: this.vmColor,
+             dense: true,
+             autofocus: true,
