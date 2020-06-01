@@ -2,9 +2,9 @@
   <q-layout view="hHh lpr fff">
     <q-header>
       <q-toolbar>
-        <q-btn flat icon="fas fa-arrow-left" stretch to="/configuration" />
+        <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
         <q-toolbar-title>{{ $t('my_actions') }}</q-toolbar-title>
-        <q-btn flat icon="fas fa-plus" stretch @click="createAction" />
+        <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createAction" />
       </q-toolbar>
     </q-header>
     <q-page-container>

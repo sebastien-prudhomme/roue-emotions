@@ -3,8 +3,8 @@
     <q-header>
       <q-toolbar>
         <q-toolbar-title>{{ $t('my_wheel_of_emotions') }}</q-toolbar-title>
-        <q-btn flat icon="fas fa-cog" stretch to="/configuration" />
-        <q-btn flat icon="fas fa-question" stretch to="/about" />
+        <q-btn :aria-label="$t('configuration')" flat icon="fas fa-cog" stretch to="/configuration" />
+        <q-btn :aria-label="$t('about')" flat icon="fas fa-question" stretch to="/about" />
       </q-toolbar>
     </q-header>
     <q-page-container>

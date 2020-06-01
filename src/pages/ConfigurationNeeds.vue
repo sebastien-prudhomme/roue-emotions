@@ -9,7 +9,7 @@
           </q-item-section>
           <q-item-section class="text-center">{{ need }}</q-item-section>
           <q-item-section side>
-            <q-btn color="primary" dense flat icon="fas fa-ellipsis-v" round>
+            <q-btn :aria-label="$t('menu')" color="primary" dense flat icon="fas fa-ellipsis-v" round>
               <q-menu>
                 <q-list>
                   <q-item clickable v-close-popup @click="updateNeed(index)">

@@ -18,6 +18,7 @@ export default {
     think_of_my_favorite_hero: 'Penser à mon héros favori',
     think_of_my_qualities: 'Penser à mes qualités'
   },
+  add: 'Ajouter',
   cancel: 'Annuler',
   configuration: 'Configuration',
   credits: 'Crédits :',
@@ -34,9 +35,11 @@ export default {
     scared: 'Effrayé/Effrayée',
     tired: 'Fatigué/Fatiguée'
   },
+  home: 'Accueil',
   i_can: 'Je peux :',
   i_feel: 'Je me sens :',
   i_need: 'J\'ai besoin :',
+  menu: 'Menu',
   needs: {
     encouragement: 'D\'encouragement',
     help: 'D\'aide',
