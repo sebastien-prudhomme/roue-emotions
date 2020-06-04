@@ -1,6 +1,6 @@
 {
   "name": "roue-emotions",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux.",
   "productName": "Ma roue des émotions",
   "cordovaId": "com.cowboysysop.roue_emotions",
