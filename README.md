@@ -1,4 +1,4 @@
-# Ma roue des émotions (roue-emotions)
+# Ma roue des émotions
 
 Une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux.
 
