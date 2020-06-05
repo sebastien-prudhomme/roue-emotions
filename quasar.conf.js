@@ -9,6 +9,15 @@
 
 module.exports = function (/* ctx */) {
   return {
+    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
+    supportIE: false,
+
+    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ts
+    supportTS: false,
+
+    // https://quasar.dev/quasar-cli/cli-documentation/prefetch-feature
+    // preFetch: true,
+
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
@@ -37,6 +46,43 @@ module.exports = function (/* ctx */) {
       'fontawesome-v5'
     ],
 
+    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
+    build: {
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
+
+      // Add dependencies for transpiling with Babel (Array of regexes)
+      // (from node_modules, which are by default not transpiled).
+      // Does not applies to modern builds.
+      // transpileDependencies: [],
+
+      modern: true, // https://quasar.dev/quasar-cli/modern-build
+      // rtl: false, // https://quasar.dev/options/rtl-support
+      // preloadChunks: true,
+      // showProgress: false,
+      // gzip: true,
+      // analyze: true,
+
+      // Options below are automatically set depending on the env, set them if you want to override
+      // extractCSS: false,
+
+      // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
+      extendWebpack (cfg) {
+        cfg.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /node_modules/
+        })
+      }
+    },
+
+    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
+    devServer: {
+      https: false,
+      port: 8080,
+      open: true // opens browser window automatically
+    },
+
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
@@ -58,50 +104,6 @@ module.exports = function (/* ctx */) {
       plugins: [
         'Dialog'
       ]
-    },
-
-    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
-    supportIE: false,
-
-    // https://quasar.dev/quasar-cli/cli-documentation/supporting-ts
-    supportTS: false,
-
-    // https://quasar.dev/quasar-cli/cli-documentation/prefetch-feature
-    // preFetch: true
-
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
-    build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
-
-      modern: true, // https://quasar.dev/quasar-cli/modern-build
-      // rtl: false, // https://quasar.dev/options/rtl-support
-      // preloadChunks: true,
-      // showProgress: false,
-      // gzip: true,
-      // analyze: true,
-
-      // Options below are automatically set depending on the env, set them if you want to override
-      // extractCSS: false,
-
-      // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
-      extendWebpack (cfg) {
-        cfg.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-          options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish')
-          }
-        })
-      }
-    },
-
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
-    devServer: {
-      https: false,
-      port: 8080,
-      open: true // opens browser window automatically
     },
 
     // animations: 'all', // --- includes all animations
