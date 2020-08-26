@@ -1,7 +1,7 @@
 {
   "name": "com.cowboysysop.roue_emotions",
   "displayName": "Ma roue des émotions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
