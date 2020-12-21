@@ -4,6 +4,7 @@
       <q-toolbar>
         <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
         <q-toolbar-title>{{ $t('my_needs') }}</q-toolbar-title>
+        <q-btn :aria-label="$t('reset')" flat icon="fas fa-trash-alt" stretch @click="resetNeeds" />
         <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createNeed" />
       </q-toolbar>
     </q-header>
@@ -42,6 +43,24 @@ export default {
         persistent: true
       }).onOk(need => {
         this.$store.dispatch('configuration/createNeed', { need })
+      })
+    },
+    resetNeeds: function () {
+      this.$q.dialog({
+        message: this.$t('reset_my_needs'),
+        ok: {
+          flat: true,
+          label: this.$t('reset'),
+          rounded: true
+        },
+        cancel: {
+          flat: true,
+          label: this.$t('cancel'),
+          rounded: true
+        },
+        persistent: true
+      }).onOk(() => {
+        this.$store.dispatch('configuration/resetNeeds')
       })
     }
   }

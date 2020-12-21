@@ -4,6 +4,7 @@
       <q-toolbar>
         <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
         <q-toolbar-title>{{ $t('my_actions') }}</q-toolbar-title>
+        <q-btn :aria-label="$t('reset')" flat icon="fas fa-trash-alt" stretch @click="resetActions" />
         <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createAction" />
       </q-toolbar>
     </q-header>
@@ -42,6 +43,24 @@ export default {
         persistent: true
       }).onOk(action => {
         this.$store.dispatch('configuration/createAction', { action })
+      })
+    },
+    resetActions: function () {
+      this.$q.dialog({
+        message: this.$t('reset_my_actions'),
+        ok: {
+          flat: true,
+          label: this.$t('reset'),
+          rounded: true
+        },
+        cancel: {
+          flat: true,
+          label: this.$t('cancel'),
+          rounded: true
+        },
+        persistent: true
+      }).onOk(() => {
+        this.$store.dispatch('configuration/resetActions')
       })
     }
   }

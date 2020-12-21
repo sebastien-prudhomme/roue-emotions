@@ -64,6 +64,9 @@ export default {
   remove: 'Supprimer',
   remove_this_action: 'Supprimer cette action ?',
   remove_this_need: 'Supprimer ce besoin ?',
+  reset: 'Réinitialiser',
+  reset_my_actions: 'Réinitialiser mes actions ?',
+  reset_my_needs: 'Réinitialiser mes besoins ?',
   save: 'Sauvegarder',
   schoolbell_font: 'Police Schoolbell',
   validate: {
