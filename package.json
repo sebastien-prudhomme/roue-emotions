@@ -11,9 +11,9 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@hapi/joi": "17.1.1",
     "@quasar/extras": "1.9.12",
     "core-js": "3.8.1",
+    "joi": "17.3.0",
     "langtag-utils": "2.0.2",
     "quasar": "1.14.7",
     "vue-i18n": "8.22.2",

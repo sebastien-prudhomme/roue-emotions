@@ -16,7 +16,7 @@
 
 <script>
 import validate from '../helpers/validate'
-import Joi from '@hapi/joi'
+import Joi from 'joi'
 
 export default {
   name: 'ConfigurationActionsLayout',
