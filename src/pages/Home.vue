@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-yellow-4 column justify-between">
     <carousel height="32vh" :title="$t('i_feel')">
-      <carousel-slide-image-text v-for="(feeling, index) in feelings" :image="`${index}.png`" :key="index" :name="index.toString()" :text="feeling" />
+      <carousel-slide-icon-text v-for="(emotion, index) in emotions" :icon="emotion.icon" :key="index" :name="index.toString()" :text="emotion.text" />
     </carousel>
     <carousel height="16vh" :title="$t('i_need')">
       <carousel-slide-text v-for="(need, index) in needs" :key="index" :name="index.toString()" :text="need" />
@@ -17,12 +17,12 @@ export default {
   name: 'Home',
   components: {
     Carousel: () => import('components/Carousel'),
-    CarouselSlideImageText: () => import('components/CarouselSlideImageText'),
+    CarouselSlideIconText: () => import('components/CarouselSlideIconText'),
     CarouselSlideText: () => import('components/CarouselSlideText')
   },
   computed: {
-    feelings: function () {
-      return this.$store.state.configuration.feelings
+    emotions: function () {
+      return this.$store.state.configuration.emotions
     },
     needs: function () {
       return this.$store.state.configuration.needs

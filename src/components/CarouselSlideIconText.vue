@@ -1,15 +1,15 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
-    <q-img no-default-spinner :src="image" />
+    <q-icon :name="icon" />
     <div class="text-center">{{ text }}</div>
   </q-carousel-slide>
 </template>
 
 <script>
 export default {
-  name: 'CarouselSlideImageText',
+  name: 'CarouselSlideIconText',
   props: {
-    image: {
+    icon: {
       type: String,
       default: ''
     },

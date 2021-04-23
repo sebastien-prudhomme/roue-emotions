@@ -1,16 +1,46 @@
 import { i18n } from '../boot/i18n'
 
-const FEELINGS = [
-  i18n.t('feelings.tired'),
-  i18n.t('feelings.offended'),
-  i18n.t('feelings.calm'),
-  i18n.t('feelings.happy'),
-  i18n.t('feelings.joyful'),
-  i18n.t('feelings.angry'),
-  i18n.t('feelings.jealous'),
-  i18n.t('feelings.scared'),
-  i18n.t('feelings.sad'),
-  i18n.t('feelings.disappointed')
+const EMOTIONS = [
+  {
+    icon: 'img:emotions/rigolett-tired.png',
+    text: i18n.t('emotions.tired')
+  },
+  {
+    icon: 'img:emotions/rigolett-offended.png',
+    text: i18n.t('emotions.offended')
+  },
+  {
+    icon: 'img:emotions/rigolett-calm.png',
+    text: i18n.t('emotions.calm')
+  },
+  {
+    icon: 'img:emotions/rigolett-happy.png',
+    text: i18n.t('emotions.happy')
+  },
+  {
+    icon: 'img:emotions/rigolett-joyful.png',
+    text: i18n.t('emotions.joyful')
+  },
+  {
+    icon: 'img:emotions/rigolett-angry.png',
+    text: i18n.t('emotions.angry')
+  },
+  {
+    icon: 'img:emotions/rigolett-jealous.png',
+    text: i18n.t('emotions.jealous')
+  },
+  {
+    icon: 'img:emotions/rigolett-scared.png',
+    text: i18n.t('emotions.scared')
+  },
+  {
+    icon: 'img:emotions/rigolett-sad.png',
+    text: i18n.t('emotions.sad')
+  },
+  {
+    icon: 'img:emotions/rigolett-disappointed.png',
+    text: i18n.t('emotions.disappointed')
+  }
 ]
 
 const NEEDS = [
@@ -51,7 +81,7 @@ export default {
   namespaced: true,
   state () {
     return {
-      feelings: [...FEELINGS],
+      emotions: [...EMOTIONS],
       needs: [...NEEDS],
       actions: [...ACTIONS]
     }

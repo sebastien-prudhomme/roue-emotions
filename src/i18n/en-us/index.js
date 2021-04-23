@@ -23,7 +23,7 @@ export default {
   configuration: 'Configuration',
   credits: 'Credits:',
   edit: 'Edit',
-  feelings: {
+  emotions: {
     angry: 'Angry',
     calm: 'Calm',
     disappointed: 'Disappointed',
