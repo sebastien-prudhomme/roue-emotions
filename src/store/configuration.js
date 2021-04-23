@@ -91,6 +91,10 @@ export default {
       // Vue wraps unshift() for reactivity
       state.actions.unshift(payload.action.trim())
     },
+    createEmotion: function (state, payload) {
+      // Vue wraps unshift() for reactivity
+      state.emotions.unshift(payload.emotion)
+    },
     createNeed: function (state, payload) {
       // Vue wraps unshift() for reactivity
       state.needs.unshift(payload.need.trim())
@@ -99,6 +103,10 @@ export default {
       // Vue wraps splice() for reactivity
       state.actions.splice(payload.index, 1)
     },
+    removeEmotion: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.emotions.splice(payload.index, 1)
+    },
     removeNeed: function (state, payload) {
       // Vue wraps splice() for reactivity
       state.needs.splice(payload.index, 1)
@@ -106,11 +114,17 @@ export default {
     resetActions: function (state, payload) {
       state.actions = [...ACTIONS]
     },
+    resetEmotions: function (state, payload) {
+      state.emotions = [...EMOTIONS]
+    },
     resetNeeds: function (state, payload) {
       state.needs = [...NEEDS]
     },
     setActions: function (state, payload) {
       state.actions = payload.actions
+    },
+    setEmotions: function (state, payload) {
+      state.emotions = payload.emotions
     },
     setNeeds: function (state, payload) {
       state.needs = payload.needs
@@ -118,6 +132,10 @@ export default {
     updateAction: function (state, payload) {
       // Vue wraps splice() for reactivity
       state.actions.splice(payload.index, 1, payload.action.trim())
+    },
+    updateEmotion: function (state, payload) {
+      // Vue wraps splice() for reactivity
+      state.emotions.splice(payload.index, 1, payload.emotion)
     },
     updateNeed: function (state, payload) {
       // Vue wraps splice() for reactivity
@@ -128,11 +146,17 @@ export default {
     createAction: function (context, payload) {
       context.commit('createAction', payload)
     },
+    createEmotion: function (context, payload) {
+      context.commit('createEmotion', payload)
+    },
     createNeed: function (context, payload) {
       context.commit('createNeed', payload)
     },
     removeAction: function (context, payload) {
       context.commit('removeAction', payload)
+    },
+    removeEmotion: function (context, payload) {
+      context.commit('removeEmotion', payload)
     },
     removeNeed: function (context, payload) {
       context.commit('removeNeed', payload)
@@ -140,17 +164,26 @@ export default {
     resetActions: function (context, payload) {
       context.commit('resetActions', payload)
     },
+    resetEmotions: function (context, payload) {
+      context.commit('resetEmotions', payload)
+    },
     resetNeeds: function (context, payload) {
       context.commit('resetNeeds', payload)
     },
     setActions: function (context, payload) {
       context.commit('setActions', payload)
     },
+    setEmotions: function (context, payload) {
+      context.commit('setEmotions', payload)
+    },
     setNeeds: function (context, payload) {
       context.commit('setNeeds', payload)
     },
     updateAction: function (context, payload) {
       context.commit('updateAction', payload)
+    },
+    updateEmotion: function (context, payload) {
+      context.commit('updateEmotion', payload)
     },
     updateNeed: function (context, payload) {
       context.commit('updateNeed', payload)

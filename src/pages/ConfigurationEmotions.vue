@@ -1,0 +1,114 @@
+<template>
+  <q-page class="bg-yellow-4">
+    <div class="text-center">{{ $t('i_feel') }}</div>
+    <q-list>
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="emotions">
+        <q-item v-for="(emotion, index) in emotions" class="bg-white inset-shadow rounded-borders" :key="index">
+          <q-item-section avatar>
+            <q-icon color="primary" name="fas fa-arrows-alt-v" />
+          </q-item-section>
+          <q-item-section class="items-center">
+            <q-icon :name="emotion.icon" />
+            <div class="text-center">{{ emotion.text }}</div>
+          </q-item-section>
+          <q-item-section side>
+            <q-btn :aria-label="$t('menu')" color="primary" dense flat icon="fas fa-ellipsis-v" round>
+              <q-menu>
+                <q-list>
+                  <q-item clickable v-close-popup @click="updateEmotion(index)">
+                    <q-item-section>{{ $t('edit') }}</q-item-section>
+                  </q-item>
+                  <q-item clickable v-close-popup @click="removeEmotion(index)">
+                    <q-item-section>{{ $t('remove') }}</q-item-section>
+                  </q-item>
+                </q-list>
+              </q-menu>
+            </q-btn>
+          </q-item-section>
+        </q-item>
+      </vue-draggable>
+    </q-list>
+  </q-page>
+</template>
+
+<script>
+import validate from '../helpers/validate'
+import Joi from 'joi'
+
+export default {
+  name: 'ConfigurationEmotions',
+  components: {
+    VueDraggable: () => import('vuedraggable')
+  },
+  computed: {
+    emotions: {
+      get: function () {
+        return this.$store.state.configuration.emotions
+      },
+      set: function (emotions) {
+        this.$store.commit('configuration/setEmotions', { emotions })
+      }
+    },
+    sensitivity: function () {
+      const vh = window.innerHeight / 100
+      const sensitivity = 8 * vh
+
+      return {
+        top: sensitivity + 8 * vh, // Take header into account
+        bottom: sensitivity,
+        left: 0,
+        right: 0
+      }
+    }
+  },
+  methods: {
+    removeEmotion: function (index) {
+      this.$q.dialog({
+        message: this.$t('remove_this_emotion'),
+        ok: {
+          flat: true,
+          label: this.$t('remove'),
+          rounded: true
+        },
+        cancel: {
+          flat: true,
+          label: this.$t('cancel'),
+          rounded: true
+        },
+        persistent: true
+      }).onOk(() => {
+        this.$store.dispatch('configuration/removeEmotion', { index })
+      })
+    },
+    updateEmotion: function (index) {
+      this.$q.dialog({
+        message: this.$t('i_feel'),
+        prompt: {
+          counter: true,
+          isValid: validate(Joi.string().trim().min(1)),
+          maxlength: 40,
+          model: this.$store.state.configuration.emotions[index].text
+        },
+        ok: {
+          flat: true,
+          label: this.$t('save'),
+          rounded: true
+        },
+        cancel: {
+          flat: true,
+          label: this.$t('cancel'),
+          rounded: true
+        },
+        persistent: true
+      }).onOk(text => {
+        const emotion = {
+          icon: this.$store.state.configuration.emotions[index].icon,
+          text: text.trim()
+        }
+
+        this.$store.dispatch('configuration/updateEmotion', { index, emotion })
+      })
+    }
+  }
+}
+</script>

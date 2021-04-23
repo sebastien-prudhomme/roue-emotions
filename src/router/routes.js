@@ -29,6 +29,13 @@ const routes = [
     ]
   },
   {
+    path: '/configuration/emotions',
+    component: () => import('layouts/ConfigurationEmotionsLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ConfigurationEmotions.vue') }
+    ]
+  },
+  {
     path: '/configuration/needs',
     component: () => import('layouts/ConfigurationNeedsLayout.vue'),
     children: [
