@@ -11,33 +11,33 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "1.9.12",
-    "core-js": "3.8.1",
-    "joi": "17.3.0",
+    "@quasar/extras": "1.10.4",
+    "core-js": "3.11.0",
+    "joi": "17.4.0",
     "langtag-utils": "2.0.2",
-    "quasar": "1.14.7",
-    "vue-i18n": "8.22.2",
+    "quasar": "1.15.10",
+    "vue-i18n": "8.24.3",
     "vuedraggable": "2.24.3",
-    "vuex-persistedstate": "3.1.0"
+    "vuex-persistedstate": "3.2.0"
   },
   "devDependencies": {
-    "@quasar/app": "2.1.13",
+    "@quasar/app": "2.2.4",
     "@quasar/icongenie": "2.3.3",
     "@quasar/quasar-app-extension-qiconpicker": "1.2.10",
     "babel-eslint": "10.1.0",
     "devtron": "1.4.0",
-    "electron": "11.1.0",
-    "electron-builder": "22.9.1",
+    "electron": "12.0.5",
+    "electron-builder": "22.10.5",
     "electron-debug": "3.2.0",
-    "electron-devtools-installer": "3.1.1",
-    "eslint": "7.16.0",
+    "electron-devtools-installer": "3.2.0",
+    "eslint": "7.25.0",
     "eslint-config-standard": "16.0.2",
     "eslint-loader": "4.0.2",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-vue": "7.3.0",
-    "patch-package": "6.2.2"
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-vue": "7.9.0",
+    "patch-package": "6.4.7"
   },
   "browserslist": [
     "last 10 Chrome versions",
