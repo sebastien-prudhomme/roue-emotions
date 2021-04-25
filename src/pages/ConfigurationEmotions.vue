@@ -32,8 +32,7 @@
 </template>
 
 <script>
-import validate from '../helpers/validate'
-import Joi from 'joi'
+import DialogIconText from 'components/DialogIconText'
 
 export default {
   name: 'ConfigurationEmotions',
@@ -81,31 +80,15 @@ export default {
       })
     },
     updateEmotion: function (index) {
-      this.$q.dialog({
-        message: this.$t('i_feel'),
-        prompt: {
-          counter: true,
-          isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 40,
-          model: this.$store.state.configuration.emotions[index].text
-        },
-        ok: {
-          flat: true,
-          label: this.$t('save'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(text => {
-        const emotion = {
-          icon: this.$store.state.configuration.emotions[index].icon,
-          text: text.trim()
-        }
+      const emotion = this.$store.state.configuration.emotions[index]
 
+      this.$q.dialog({
+        component: DialogIconText,
+        parent: this,
+        message: this.$t('i_feel'),
+        initialIcon: emotion.icon,
+        initialText: emotion.text
+      }).onOk(emotion => {
         this.$store.dispatch('configuration/updateEmotion', { index, emotion })
       })
     }

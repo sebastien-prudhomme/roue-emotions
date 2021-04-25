@@ -15,38 +15,17 @@
 </template>
 
 <script>
-import validate from '../helpers/validate'
-import Joi from 'joi'
+import DialogIconText from 'components/DialogIconText'
 
 export default {
   name: 'ConfigurationEmotionsLayout',
   methods: {
     createEmotion: function () {
       this.$q.dialog({
-        message: this.$t('i_feel'),
-        prompt: {
-          counter: true,
-          isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 40,
-          model: ''
-        },
-        ok: {
-          flat: true,
-          label: this.$t('save'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(text => {
-        const emotion = {
-          icon: '',
-          text: text.trim()
-        }
-
+        component: DialogIconText,
+        parent: this,
+        message: this.$t('i_feel')
+      }).onOk(emotion => {
         this.$store.dispatch('configuration/createEmotion', { emotion })
       })
     },
