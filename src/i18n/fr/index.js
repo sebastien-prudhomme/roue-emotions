@@ -58,6 +58,7 @@ export default {
     to_rest: 'De me reposer',
     to_take_care_of_myself: 'De prendre soin de moi'
   },
+  openmoji_icons: 'Icônes OpenMoji',
   original_concept: 'Concept original :',
   privacy_policy: 'Politique de confidentialité',
   publisher: 'Éditeur :',

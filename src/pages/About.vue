@@ -9,6 +9,7 @@
     <carousel height="18vh" :title="$t('credits')">
       <carousel-slide-credit-quasar name="0" />
       <carousel-slide-credit-font name="1" />
+      <carousel-slide-credit-openmoji name="2" />
     </carousel>
     <div class="row items-center justify-between" style="height: 8vh;">
       <q-btn class="icon-half text-half" flat icon="fas fa-globe" :label="$t('privacy_policy')" no-caps rounded @click="open" />
@@ -29,6 +30,7 @@ export default {
     Carousel: () => import('components/Carousel'),
     CarouselSlideConcept: () => import('components/CarouselSlideConcept'),
     CarouselSlideCreditFont: () => import('components/CarouselSlideCreditFont'),
+    CarouselSlideCreditOpenmoji: () => import('components/CarouselSlideCreditOpenmoji'),
     CarouselSlideCreditQuasar: () => import('components/CarouselSlideCreditQuasar'),
     CarouselSlideEditor: () => import('components/CarouselSlideEditor')
   },

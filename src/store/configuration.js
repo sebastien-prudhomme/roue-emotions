@@ -2,43 +2,43 @@ import { i18n } from '../boot/i18n'
 
 const EMOTIONS = [
   {
-    icon: 'img:emotions/rigolett-tired.png',
+    icon: 'img:emotions/rigolett/tired.png',
     text: i18n.t('emotions.tired')
   },
   {
-    icon: 'img:emotions/rigolett-offended.png',
+    icon: 'img:emotions/rigolett/offended.png',
     text: i18n.t('emotions.offended')
   },
   {
-    icon: 'img:emotions/rigolett-calm.png',
+    icon: 'img:emotions/rigolett/calm.png',
     text: i18n.t('emotions.calm')
   },
   {
-    icon: 'img:emotions/rigolett-happy.png',
+    icon: 'img:emotions/rigolett/happy.png',
     text: i18n.t('emotions.happy')
   },
   {
-    icon: 'img:emotions/rigolett-joyful.png',
+    icon: 'img:emotions/rigolett/joyful.png',
     text: i18n.t('emotions.joyful')
   },
   {
-    icon: 'img:emotions/rigolett-angry.png',
+    icon: 'img:emotions/rigolett/angry.png',
     text: i18n.t('emotions.angry')
   },
   {
-    icon: 'img:emotions/rigolett-jealous.png',
+    icon: 'img:emotions/rigolett/jealous.png',
     text: i18n.t('emotions.jealous')
   },
   {
-    icon: 'img:emotions/rigolett-scared.png',
+    icon: 'img:emotions/rigolett/scared.png',
     text: i18n.t('emotions.scared')
   },
   {
-    icon: 'img:emotions/rigolett-sad.png',
+    icon: 'img:emotions/rigolett/sad.png',
     text: i18n.t('emotions.sad')
   },
   {
-    icon: 'img:emotions/rigolett-disappointed.png',
+    icon: 'img:emotions/rigolett/disappointed.png',
     text: i18n.t('emotions.disappointed')
   }
 ]

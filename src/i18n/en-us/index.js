@@ -58,6 +58,7 @@ export default {
     to_rest: 'To rest',
     to_take_care_of_myself: 'To take care of myself'
   },
+  openmoji_icons: 'OpenMoji icons',
   original_concept: 'Original concept:',
   privacy_policy: 'Privacy policy',
   publisher: 'Publisher:',
