@@ -15,13 +15,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: 12
 
       - name: Install Node Packages
         run: npm ci
 
       - name: Install Cordova
         run: npm install -g cordova
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 8
 
       - name: Build Android Package
         run: npx quasar build -m cordova -T android -- -- --packageType=bundle
@@ -52,7 +58,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: 12
 
       - name: Install Node Packages
         run: npm ci
@@ -64,7 +70,7 @@ jobs:
 
       - name: Get Tag
         id: get-tag
-        uses: olegtarasov/get-tag@v2
+        uses: olegtarasov/get-tag@v2.1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -81,7 +87,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: 12
 
       - name: Install Node Packages
         run: npm ci
@@ -93,7 +99,7 @@ jobs:
 
       - name: Get Tag
         id: get-tag
-        uses: olegtarasov/get-tag@v2
+        uses: olegtarasov/get-tag@v2.1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
@@ -121,7 +127,7 @@ jobs:
 
       - name: Get Tag
         id: get-tag
-        uses: olegtarasov/get-tag@v2
+        uses: olegtarasov/get-tag@v2.1
 
       - name: Upload Linux Release Asset
         uses: actions/upload-release-asset@v1
