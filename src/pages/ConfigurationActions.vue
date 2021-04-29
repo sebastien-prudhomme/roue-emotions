@@ -3,7 +3,7 @@
     <div class="text-center">{{ $t('i_can') }}</div>
     <q-list>
       <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="actions">
-        <q-item v-for="(action, index) in actions" class="bg-white inset-shadow rounded-borders" :key="index">
+        <q-item v-for="(action, index) in actions" :key="index" class="bg-white inset-shadow rounded-borders">
           <q-item-section avatar>
             <q-icon color="primary" name="fas fa-arrows-alt-v" />
           </q-item-section>
