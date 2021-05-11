@@ -58,11 +58,21 @@ export default {
     to_rest: 'To rest',
     to_take_care_of_myself: 'To take care of myself'
   },
+  ok: 'OK',
   openmoji_icons: 'OpenMoji icons',
   original_concept: 'Original concept:',
   privacy_policy: 'Privacy policy',
   publisher: 'Publisher:',
   quasar_framework: 'Quasar framework',
+  release_notes: {
+    '1_1_0': [
+      'Added buttons to reset my needs and my actions'
+    ],
+    '1_2_0': [
+      'Added the configuration of my emotions',
+      'Added new icons for my emotions'
+    ]
+  },
   remove: 'Remove',
   remove_this_action: 'Remove this action?',
   remove_this_emotion: 'Remove this emotion?',
@@ -78,5 +88,7 @@ export default {
       empty: 'Must not be empty'
     }
   },
-  version: 'Version:'
+  version: 'Version:',
+  welcome: 'Welcome',
+  welcome_message: 'My wheel of emotions, a wheel to identify one\'s emotions, needs and solutions to get better.'
 }

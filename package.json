@@ -16,6 +16,7 @@
     "joi": "17.4.0",
     "langtag-utils": "2.0.2",
     "quasar": "1.15.10",
+    "semver": "7.3.5",
     "vue-i18n": "8.24.3",
     "vuedraggable": "2.24.3",
     "vuex-persistedstate": "3.2.0"

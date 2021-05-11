@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
+import application from './application'
 import configuration from './configuration'
+import migratePersistedState from './migratePersistedState'
 
 Vue.use(Vuex)
 
@@ -18,10 +20,11 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
+      application,
       configuration
     },
     plugins: [
-      createPersistedState()
+      createPersistedState({ assertStorage: migratePersistedState })
     ],
 
     // enable strict mode (adds overhead!)

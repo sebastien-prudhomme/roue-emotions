@@ -58,11 +58,21 @@ export default {
     to_rest: 'De me reposer',
     to_take_care_of_myself: 'De prendre soin de moi'
   },
+  ok: 'OK',
   openmoji_icons: 'Icônes OpenMoji',
   original_concept: 'Concept original :',
   privacy_policy: 'Politique de confidentialité',
   publisher: 'Éditeur :',
   quasar_framework: 'Cadriciel Quasar',
+  release_notes: {
+    '1_1_0': [
+      'Ajout de boutons pour réinitialiser mes besoins et mes actions'
+    ],
+    '1_2_0': [
+      'Ajout de la configuration de mes émotions',
+      'Ajout de nouveaux icônes pour mes émotions'
+    ]
+  },
   remove: 'Supprimer',
   remove_this_action: 'Supprimer cette action ?',
   remove_this_emotion: 'Supprimer cette émotion ?',
@@ -78,5 +88,7 @@ export default {
       empty: 'Ne doit pas être vide'
     }
   },
-  version: 'Version :'
+  version: 'Version :',
+  welcome: 'Bienvenue',
+  welcome_message: 'Ma roue des émotions, une roue pour identifier ses émotions, ses besoins et les solutions pour aller mieux.'
 }

@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-yellow-4 column justify-between">
     <carousel height="32vh" :title="$t('i_feel')">
-      <carousel-slide-icon-text v-for="(emotion, index) in emotions" :icon="emotion.icon" :key="index" :name="index.toString()" :text="emotion.text" />
+      <carousel-slide-icon-text v-for="(emotion, index) in emotions" :key="index" :icon="emotion.icon" :name="index.toString()" :text="emotion.text" />
     </carousel>
     <carousel height="16vh" :title="$t('i_need')">
       <carousel-slide-text v-for="(need, index) in needs" :key="index" :name="index.toString()" :text="need" />
@@ -13,6 +13,10 @@
 </template>
 
 <script>
+import semver from 'semver'
+import { version } from '../../package.json'
+import DialogWelcome from 'components/DialogWelcome'
+
 export default {
   name: 'Home',
   components: {
@@ -29,6 +33,16 @@ export default {
     },
     actions: function () {
       return this.$store.state.configuration.actions
+    }
+  },
+  mounted: function () {
+    if (this.$store.state.application.version === null || semver.lt(this.$store.state.application.version, version)) {
+      this.$q.dialog({
+        component: DialogWelcome,
+        parent: this
+      }).onOk(() => {
+        this.$store.commit('application/setVersion', { version })
+      })
     }
   }
 }
