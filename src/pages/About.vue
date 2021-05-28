@@ -1,20 +1,22 @@
 <template>
-  <q-page class="bg-yellow-4 column justify-between">
-    <carousel height="18vh" :title="$t('publisher')">
-      <carousel-slide-editor name="0" />
-    </carousel>
-    <carousel height="18vh" :title="$t('original_concept')">
-      <carousel-slide-concept name="0" />
-    </carousel>
-    <carousel height="18vh" :title="$t('credits')">
-      <carousel-slide-credit-quasar name="0" />
-      <carousel-slide-credit-font name="1" />
-      <carousel-slide-credit-openmoji name="2" />
-    </carousel>
-    <div class="row items-center justify-between" style="height: 8vh;">
-      <q-btn class="icon-half text-half" flat icon="fas fa-globe" :label="$t('privacy_policy')" no-caps rounded @click="open" />
-      <div class="text-half">
-        {{ $t('version') }} {{ version }}
+  <q-page class="bg-yellow-4">
+    <div class="q-gutter-y-md">
+      <carousel class="carousel-editor" :title="$t('publisher')">
+        <carousel-slide-editor name="0" />
+      </carousel>
+      <carousel class="carousel-concept" :title="$t('original_concept')">
+        <carousel-slide-concept name="0" />
+      </carousel>
+      <carousel class="carousel-credits" :title="$t('credits')">
+        <carousel-slide-credit-quasar name="0" />
+        <carousel-slide-credit-font name="1" />
+        <carousel-slide-credit-openmoji name="2" />
+      </carousel>
+      <div class="about-footer row items-center justify-between">
+        <q-btn class="icon-half text-half" flat icon="fas fa-globe" :label="$t('privacy_policy')" no-caps rounded @click="open" />
+        <div class="text-half">
+          {{ $t('version') }} {{ version }}
+        </div>
       </div>
     </div>
   </q-page>

@@ -1,9 +1,9 @@
 <template>
-  <q-dialog persistent ref="dialog" @hide="hideDialog">
+  <q-dialog class="dialog-icon-text" persistent ref="dialog" @hide="hideDialog">
     <q-card class="q-dialog-plugin">
       <q-card-section>{{ message }}</q-card-section>
       <q-card-section>
-        <q-icon-picker :icons="icons" style="height: 27.5vh;" v-model="icon" />
+        <q-icon-picker :icons="icons" v-model="icon" />
       </q-card-section>
       <q-card-section>
         <q-input counter dense :maxlength="40" v-model="text" />

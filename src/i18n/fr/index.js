@@ -20,6 +20,7 @@ export default {
   },
   add: 'Ajouter',
   cancel: 'Annuler',
+  close: 'Fermer',
   configuration: 'Configuration',
   credits: 'Crédits :',
   edit: 'Éditer',

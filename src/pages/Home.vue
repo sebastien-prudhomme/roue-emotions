@@ -1,14 +1,16 @@
 <template>
-  <q-page class="bg-yellow-4 column justify-between">
-    <carousel height="32vh" :title="$t('i_feel')">
-      <carousel-slide-icon-text v-for="(emotion, index) in emotions" :key="index" :icon="emotion.icon" :name="index.toString()" :text="emotion.text" />
-    </carousel>
-    <carousel height="16vh" :title="$t('i_need')">
-      <carousel-slide-text v-for="(need, index) in needs" :key="index" :name="index.toString()" :text="need" />
-    </carousel>
-    <carousel height="16vh" :title="$t('i_can')">
-      <carousel-slide-text v-for="(action, index) in actions" :key="index" :name="index.toString()" :text="action" />
-    </carousel>
+  <q-page class="bg-yellow-4">
+    <div class="q-gutter-y-md">
+      <carousel class="carousel-emotions" :title="$t('i_feel')">
+        <carousel-slide-icon-text v-for="(emotion, index) in emotions" :key="index" :icon="emotion.icon" :name="index.toString()" :text="emotion.text" />
+      </carousel>
+      <carousel class="carousel-needs" :title="$t('i_need')">
+        <carousel-slide-text v-for="(need, index) in needs" :key="index" :name="index.toString()" :text="need" />
+      </carousel>
+      <carousel class="carousel-actions" :title="$t('i_can')">
+        <carousel-slide-text v-for="(action, index) in actions" :key="index" :name="index.toString()" :text="action" />
+      </carousel>
+    </div>
   </q-page>
 </template>
 

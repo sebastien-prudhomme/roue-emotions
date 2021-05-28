@@ -1,12 +1,12 @@
 <template>
-  <q-dialog persistent ref="dialog" @hide="hideDialog">
+  <q-dialog class="dialog-welcome" persistent ref="dialog" @hide="hideDialog">
     <q-card class="q-dialog-plugin">
       <q-card-section>
         <div>{{ $t('welcome') }}</div>
         <div class="text-half">{{ $t('welcome_message') }}</div>
       </q-card-section>
       <q-card-section v-if="haveVersion">
-        <q-scroll-area style="height: 22vh" visible>
+        <q-scroll-area visible>
           <div v-for="(releaseNote, index) in releaseNotes" :key="index">
             <div class="text-half text-underline">{{ releaseNote.version }}</div>
             <ul>

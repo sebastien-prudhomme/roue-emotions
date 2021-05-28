@@ -49,11 +49,12 @@ export default {
       }
     },
     sensitivity: function () {
+      const vw = window.innerWidth / 100
       const vh = window.innerHeight / 100
-      const sensitivity = 8 * vh
+      const sensitivity = 8 * Math.min(2 * vw, 1 * vh)
 
       return {
-        top: sensitivity + 8 * vh, // Take header into account
+        top: sensitivity + 8 * Math.min(2 * vw, 1 * vh), // Take header into account
         bottom: sensitivity,
         left: 0,
         right: 0
