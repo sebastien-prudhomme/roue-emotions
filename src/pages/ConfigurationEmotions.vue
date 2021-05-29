@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-4">
+  <q-page>
     <div class="text-center">{{ $t('i_feel') }}</div>
     <q-list>
       <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="emotions">

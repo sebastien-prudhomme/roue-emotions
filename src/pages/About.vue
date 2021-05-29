@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-4">
+  <q-page>
     <div class="q-gutter-y-md">
       <carousel class="carousel-editor" :title="$t('publisher')">
         <carousel-slide-editor name="0" />

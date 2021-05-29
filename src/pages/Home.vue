@@ -1,5 +1,5 @@
 <template>
-  <q-page class="bg-yellow-4">
+  <q-page>
     <div class="q-gutter-y-md">
       <carousel class="carousel-emotions" :title="$t('i_feel')">
         <carousel-slide-icon-text v-for="(emotion, index) in emotions" :key="index" :icon="emotion.icon" :name="index.toString()" :text="emotion.text" />
