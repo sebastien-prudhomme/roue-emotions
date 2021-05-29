@@ -47,8 +47,8 @@ export default {
       }
     },
     sensitivity: function () {
-      const vw = window.innerWidth / 100
-      const vh = window.innerHeight / 100
+      const vw = this.$q.screen.width / 100
+      const vh = this.$q.screen.height / 100
       const sensitivity = 8 * Math.min(2 * vw, 1 * vh)
 
       return {
