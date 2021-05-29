@@ -6,7 +6,7 @@
         <q-icon-picker :icons="icons" v-model="icon" />
       </q-card-section>
       <q-card-section>
-        <q-input counter dense :maxlength="40" v-model="text" />
+        <q-input counter dense :maxlength="20" v-model="text" />
       </q-card-section>
       <q-card-actions align="right">
         <q-btn color="primary" flat :label="$t('cancel')" :ripple="false" rounded @click="cancelDialog" />
