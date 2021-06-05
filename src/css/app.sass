@@ -97,7 +97,7 @@ body
   padding: ratio(2) // default: 24px
 
 .q-dialog__inner > div
-  border-radius: ratio(2)  // default: 4px
+  border-radius: ratio(2) // default: 4px
 
 .q-dialog__inner > .q-card > .q-card__actions .q-btn--rectangle .q-btn__wrapper
   min-width: ratio(8) // default: 64px
@@ -119,6 +119,15 @@ body
 .q-field
   font-size: ratio(4) // default: 14px
 
+.q-field__append
+  padding-left: ratio(1) // default 12px
+
+.q-field--auto-height
+  .q-field__control, .q-field__native
+    min-height: ratio(8) // default: 56px
+  .q-field__native
+    line-height: ratio(4) // default: 18px
+
 .q-field__bottom
   min-height: ratio(4) // default: 12px
   padding: ratio(1) ratio(1) 0 // default: 8px 12px 0
@@ -132,8 +141,23 @@ body
 .q-field--dense .q-field__control
   height: ratio(8) // default: 40px
 
-.q-field__native
+.q-field--filled .q-field__control
+  padding: 0 ratio(2) // default: 0 12px
+
+.q-field__marginal
+  font-size: ratio(8) // default: 24px
+  height: ratio(8) // default: 56px
+
+.q-field__native, .q-field__suffix
+  line-height: ratio(4) // default: 28px
   padding: ratio(2) 0 // default: 6px 0
+
+.q-field--outlined .q-field__control
+  padding: 0 ratio(2) // default: 0 12px
+  border-radius: ratio(1) // default: 4px
+
+.q-field__suffix
+  padding-left: ratio(1) // default: 4px
 
 .q-field--with-bottom
   padding-bottom: ratio(4) // default: 20px
@@ -183,6 +207,10 @@ body
 
 .q-scrollarea__bar--v, .q-scrollarea__thumb--v
   width: ratio(1) // default: 10px
+
+.q-select__dialog
+  width: ratio(50) !important // default: 90vw !important
+  max-width: ratio(50) !important // default: 90vw !important
 
 .q-toolbar
   min-height: ratio(8) // default: 50px

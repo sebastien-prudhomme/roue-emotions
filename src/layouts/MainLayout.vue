@@ -11,6 +11,12 @@
         <q-btn :aria-label="$t('close')" flat icon="fas fa-times" stretch @click="switchDrawer" />
       </q-toolbar>
       <q-list>
+        <q-item clickable @click="pdfExport">
+          <q-item-section avatar>
+            <q-icon name="fas fa-file-pdf" />
+          </q-item-section>
+          <q-item-section>{{ $t('pdf_export') }}</q-item-section>
+        </q-item>
         <q-item to="/configuration">
           <q-item-section avatar>
             <q-icon name="fas fa-cog" />
@@ -33,6 +39,8 @@
 </template>
 
 <script>
+import DialogPdfExport from 'components/DialogPdfExport'
+
 export default {
   name: 'MainLayout',
   data () {
@@ -49,6 +57,14 @@ export default {
     }
   },
   methods: {
+    pdfExport: function () {
+      this.switchDrawer()
+
+      this.$q.dialog({
+        component: DialogPdfExport,
+        parent: this
+      })
+    },
     switchDrawer: function () {
       this.drawerVisible = !this.drawerVisible
     }
