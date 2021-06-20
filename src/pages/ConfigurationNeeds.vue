@@ -85,7 +85,8 @@ export default {
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
           maxlength: 40,
-          model: this.$store.state.configuration.needs[index]
+          model: this.$store.state.configuration.needs[index],
+          outlined: true
         },
         ok: {
           flat: true,

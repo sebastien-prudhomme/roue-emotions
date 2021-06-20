@@ -28,7 +28,8 @@ export default {
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
           maxlength: 40,
-          model: ''
+          model: '',
+          outlined: true
         },
         ok: {
           flat: true,
