@@ -79,6 +79,9 @@ export default {
     '1_2_0': [
       'Ajout de la configuration de mes émotions',
       'Ajout de nouveaux icônes pour mes émotions'
+    ],
+    '1_3_0': [
+      'Ajout de l\'export PDF'
     ]
   },
   remove: 'Supprimer',

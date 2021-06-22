@@ -79,6 +79,9 @@ export default {
     '1_2_0': [
       'Added the configuration of my emotions',
       'Added new icons for my emotions'
+    ],
+    '1_3_0': [
+      'Added PDF export'
     ]
   },
   remove: 'Remove',
