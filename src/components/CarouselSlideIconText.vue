@@ -1,6 +1,6 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
-    <q-icon :name="icon" />
+    <q-icon draggable="false" :name="icon" />
     <div class="text-center">{{ text }}</div>
   </q-carousel-slide>
 </template>
