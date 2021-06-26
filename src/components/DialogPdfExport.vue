@@ -3,10 +3,10 @@
     <q-card class="q-dialog-plugin">
       <q-card-section class="card-section-wheel">
         <div class="wheel">
-          <div class="wheel__layer wheel__layer--1"></div>
-          <div class="wheel__layer wheel__layer--2"></div>
-          <div class="wheel__layer wheel__layer--3"></div>
-          <div class="wheel__layer wheel__layer--4"></div>
+          <div class="wheel__layer wheel__layer--1" :style="`background-image: url('${locale}/pdf-export-1.png')`"></div>
+          <div class="wheel__layer wheel__layer--2" :style="`background-image: url('${locale}/pdf-export-2.png')`"></div>
+          <div class="wheel__layer wheel__layer--3" :style="`background-image: url('${locale}/pdf-export-3.png')`"></div>
+          <div class="wheel__layer wheel__layer--4" :style="`background-image: url('${locale}/pdf-export-4.png')`"></div>
         </div>
       </q-card-section>
       <q-card-section>{{ $t('file_name') }}</q-card-section>
@@ -47,6 +47,9 @@ export default {
       const fileNameIsValid = validate(Joi.string().trim().min(1))
 
       return (fileNameIsValid(this.fileName) !== true)
+    },
+    locale: function () {
+      return this.$i18n.locale
     }
   },
   methods: {
@@ -98,16 +101,12 @@ export default {
   background-size: cover
   &--1
     animation-name: wheel__layer--1
-    background-image: url('~assets/pdf-export-1.png')
   &--2
     animation-name: wheel__layer--2
-    background-image: url('~assets/pdf-export-2.png')
   &--3
     animation-name: wheel__layer--3
-    background-image: url('~assets/pdf-export-3.png')
   &--4
     animation-name: wheel__layer--4
-    background-image: url('~assets/pdf-export-4.png')
 
 @keyframes wheel__layer--1
   0%
