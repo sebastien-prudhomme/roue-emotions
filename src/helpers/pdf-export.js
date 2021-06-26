@@ -233,17 +233,17 @@ export default async function (emotions, needs, actions, fileName, paperSize) {
     const blob = docStream.toBlob('application/pdf')
 
     if (Platform.is.cordova) {
-      const directoryName = `${cordova.file.externalRootDirectory}/Download`
+      const fileReader = new FileReader()
 
-      window.resolveLocalFileSystemURL(directoryName, function (directoryEntry) {
-        directoryEntry.getFile(`${fileName}.pdf`, { create: true }, function (fileEntry) {
-          fileEntry.createWriter(function (fileWriter) {
-            fileWriter.write(blob)
-          })
+      fileReader.onload = function () {
+        const dataURL = fileReader.result
 
-          cordova.plugins.fileOpener2.open(`${directoryName}/${fileName}.pdf`)
-        }, function () {})
-      }, function () {})
+        window.plugins.socialsharing.shareWithOptions({
+          files: [`df:${fileName}.pdf;${dataURL}`]
+        })
+      }
+
+      fileReader.readAsDataURL(blob)
     } else {
       fileSaver.saveAs(blob, `${fileName}.pdf`)
     }
