@@ -19,7 +19,7 @@
       </q-card-section>
       <q-card-actions align="right">
         <q-btn color="primary" flat :label="$t('cancel')" :ripple="false" rounded @click="cancelDialog" />
-        <q-btn color="primary" data-autofocus="true" :disable="disable" flat :label="$t('export')" :ripple="false" rounded @click="submitDialog" />
+        <q-btn color="primary" data-autofocus="true" :disable="disable" flat :label="$t('export')" :loading="loading" :ripple="false" rounded @click="submitDialog" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -35,6 +35,7 @@ export default {
   data () {
     return {
       fileName: this.$t('file_name_wheel_emotions'),
+      loading: false,
       paperSize: 'a4',
       paperSizeOptions: [
         { label: this.$t('paper_size_a4'), value: 'a4' },
@@ -65,8 +66,12 @@ export default {
     show: function () {
       this.$refs.dialog.show()
     },
-    submitDialog: function () {
-      pdfExport(this.$store.state.configuration.emotions, this.$store.state.configuration.needs, this.$store.state.configuration.actions, this.fileName.trim(), this.paperSize)
+    submitDialog: async function () {
+      this.loading = true
+
+      await pdfExport(this.$store.state.configuration.emotions, this.$store.state.configuration.needs, this.$store.state.configuration.actions, this.fileName.trim(), this.paperSize)
+
+      this.loading = false
 
       this.$emit('ok')
       this.hide()
