@@ -2,6 +2,7 @@ import PDFDocument from 'pdfkit/js/pdfkit.standalone'
 import blobStream from 'blob-stream'
 import fileSaver from 'file-saver'
 import { Platform } from 'quasar'
+import { fetch } from 'whatwg-fetch'
 import { i18n } from '../boot/i18n'
 
 const pageSizes = {
@@ -87,7 +88,7 @@ async function wheelOfIconsTexts (doc, iconsTexts, outerRadius, innerRadius) {
   const iconHeight = iconWidth
 
   for (let i = 0; i < icons.length; i++) {
-    const iconResponse = await fetch(icons[i])
+    const iconResponse = await (Platform.is.cordova ? fetch : window.fetch)(icons[i])
     const iconBuffer = await iconResponse.arrayBuffer()
     const iconOptions = { width: iconWidth, height: iconHeight }
 
@@ -249,7 +250,7 @@ export default async function (emotions, needs, actions, fileName, paperSize) {
     }
   })
 
-  const fontResponse = await fetch('fonts/Schoolbell-Regular.ttf')
+  const fontResponse = await (Platform.is.cordova ? fetch : window.fetch)('fonts/Schoolbell-Regular.ttf')
   const fontBuffer = await fontResponse.arrayBuffer()
   doc.font(fontBuffer)
   doc.fontSize(fontSize)
