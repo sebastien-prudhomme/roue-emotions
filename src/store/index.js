@@ -1,12 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { store } from 'quasar/wrappers'
+import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
 import application from './application'
 import configuration from './configuration'
 import migratePersistedState from './migratePersistedState'
-
-Vue.use(Vuex)
 
 /*
  * If not building with SSR mode, you can
@@ -17,8 +15,8 @@ Vue.use(Vuex)
  * with the Store instance.
  */
 
-export default function (/* { ssrContext } */) {
-  const Store = new Vuex.Store({
+export default store(function (/* { ssrContext } */) {
+  const Store = createStore({
     modules: {
       application,
       configuration
@@ -28,9 +26,9 @@ export default function (/* { ssrContext } */) {
     ],
 
     // enable strict mode (adds overhead!)
-    // for dev mode only
+    // for dev mode and --debug builds only
     strict: process.env.DEBUGGING
   })
 
   return Store
-}
+})
