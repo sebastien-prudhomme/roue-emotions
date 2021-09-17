@@ -39,9 +39,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import DialogPdfExport from 'components/DialogPdfExport'
 
-export default {
+export default defineComponent({
   name: 'MainLayout',
   data () {
     return {
@@ -69,5 +70,5 @@ export default {
       this.drawerVisible = !this.drawerVisible
     }
   }
-}
+})
 </script>

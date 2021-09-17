@@ -15,10 +15,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
+export default defineComponent({
   name: 'ConfigurationNeedsLayout',
   methods: {
     createNeed: function () {
@@ -65,5 +66,5 @@ export default {
       })
     }
   }
-}
+})
 </script>

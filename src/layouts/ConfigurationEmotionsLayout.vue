@@ -15,9 +15,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import DialogIconText from 'components/DialogIconText'
 
-export default {
+export default defineComponent({
   name: 'ConfigurationEmotionsLayout',
   methods: {
     createEmotion: function () {
@@ -48,5 +49,5 @@ export default {
       })
     }
   }
-}
+})
 </script>
