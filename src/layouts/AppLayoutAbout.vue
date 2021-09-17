@@ -13,7 +13,9 @@
 </template>
 
 <script>
-export default {
-  name: 'AboutLayout'
-}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'AppLayoutAbout'
+})
 </script>

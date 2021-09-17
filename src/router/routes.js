@@ -2,44 +2,44 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AppLayoutHome.vue'),
     children: [
-      { path: '', component: () => import('pages/Home.vue') }
+      { path: '', component: () => import('pages/AppPageHome.vue') }
     ]
   },
   {
     path: '/about',
-    component: () => import('layouts/AboutLayout.vue'),
+    component: () => import('layouts/AppLayoutAbout.vue'),
     children: [
-      { path: '', component: () => import('pages/About.vue') }
+      { path: '', component: () => import('pages/AppPageAbout.vue') }
     ]
   },
   {
     path: '/configuration',
-    component: () => import('layouts/ConfigurationLayout.vue'),
+    component: () => import('layouts/AppLayoutConfiguration.vue'),
     children: [
-      { path: '', component: () => import('pages/Configuration.vue') }
+      { path: '', component: () => import('pages/AppPageConfiguration.vue') }
     ]
   },
   {
     path: '/configuration/actions',
-    component: () => import('layouts/ConfigurationActionsLayout.vue'),
+    component: () => import('layouts/AppLayoutConfigurationActions.vue'),
     children: [
-      { path: '', component: () => import('pages/ConfigurationActions.vue') }
+      { path: '', component: () => import('pages/AppPageConfigurationActions.vue') }
     ]
   },
   {
     path: '/configuration/emotions',
-    component: () => import('layouts/ConfigurationEmotionsLayout.vue'),
+    component: () => import('layouts/AppLayoutConfigurationEmotions.vue'),
     children: [
-      { path: '', component: () => import('pages/ConfigurationEmotions.vue') }
+      { path: '', component: () => import('pages/AppPageConfigurationEmotions.vue') }
     ]
   },
   {
     path: '/configuration/needs',
-    component: () => import('layouts/ConfigurationNeedsLayout.vue'),
+    component: () => import('layouts/AppLayoutConfigurationNeeds.vue'),
     children: [
-      { path: '', component: () => import('pages/ConfigurationNeeds.vue') }
+      { path: '', component: () => import('pages/AppPageConfigurationNeeds.vue') }
     ]
   }
 ]

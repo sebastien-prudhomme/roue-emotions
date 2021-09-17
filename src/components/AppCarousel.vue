@@ -8,8 +8,10 @@
 </template>
 
 <script>
-export default {
-  name: 'Carousel',
+import { defineComponent, Fragment } from 'vue'
+
+export default defineComponent({
+  name: 'AppCarousel',
   props: {
     title: {
       type: String,
@@ -23,8 +25,8 @@ export default {
   },
   computed: {
     arrows: function () {
-      return this.$slots.default.length > 1
+      return (this.$slots.default().length > 1 || (this.$slots.default()[0].type === Fragment && this.$slots.default()[0].children.length > 1))
     }
   }
-}
+})
 </script>

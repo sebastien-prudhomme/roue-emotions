@@ -1,18 +1,15 @@
 <template>
   <q-carousel-slide class="column items-center justify-center" :name="name">
-    <q-icon draggable="false" :name="icon" />
     <div class="text-center">{{ text }}</div>
   </q-carousel-slide>
 </template>
 
 <script>
-export default {
-  name: 'CarouselSlideIconText',
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'AppCarouselSlideText',
   props: {
-    icon: {
-      type: String,
-      default: ''
-    },
     name: {
       type: String,
       default: ''
@@ -22,5 +19,5 @@ export default {
       default: ''
     }
   }
-}
+})
 </script>

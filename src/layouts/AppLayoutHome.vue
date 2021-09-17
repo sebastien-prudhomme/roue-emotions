@@ -39,10 +39,11 @@
 </template>
 
 <script>
-import DialogPdfExport from 'components/DialogPdfExport'
+import { defineComponent } from 'vue'
+import AppDialogPdfExport from 'components/AppDialogPdfExport'
 
-export default {
-  name: 'MainLayout',
+export default defineComponent({
+  name: 'AppLayoutHome',
   data () {
     return {
       drawerVisible: false
@@ -61,13 +62,12 @@ export default {
       this.switchDrawer()
 
       this.$q.dialog({
-        component: DialogPdfExport,
-        parent: this
+        component: AppDialogPdfExport
       })
     },
     switchDrawer: function () {
       this.drawerVisible = !this.drawerVisible
     }
   }
-}
+})
 </script>

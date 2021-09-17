@@ -17,11 +17,12 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
-  name: 'DialogIconText',
+export default defineComponent({
+  name: 'AppDialogIconText',
   props: {
     message: {
       type: String,
@@ -36,6 +37,10 @@ export default {
       default: ''
     }
   },
+  emits: [
+    'hide',
+    'ok'
+  ],
   data () {
     return {
       icon: this.initialIcon,
@@ -184,5 +189,5 @@ export default {
       this.hide()
     }
   }
-}
+})
 </script>

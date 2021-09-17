@@ -1,8 +1,8 @@
 diff --git a/node_modules/sortablejs/modular/sortable.esm.js b/node_modules/sortablejs/modular/sortable.esm.js
-index ba685cb..f3d3bcd 100644
+index dfbb17f..f19b162 100644
 --- a/node_modules/sortablejs/modular/sortable.esm.js
 +++ b/node_modules/sortablejs/modular/sortable.esm.js
-@@ -2808,7 +2808,10 @@ var autoScroll = throttle(function (evt, options, rootEl, isFallback) {
+@@ -2881,7 +2881,10 @@ var autoScroll = throttle(function (evt, options, rootEl, isFallback) {
    if (!options.scroll) return;
    var x = (evt.touches ? evt.touches[0] : evt).clientX,
        y = (evt.touches ? evt.touches[0] : evt).clientY,
@@ -14,7 +14,7 @@ index ba685cb..f3d3bcd 100644
        speed = options.scrollSpeed,
        winScroller = getWindowScrollingElement();
    var scrollThisInstance = false,
-@@ -2853,8 +2856,8 @@ var autoScroll = throttle(function (evt, options, rootEl, isFallback) {
+@@ -2926,8 +2929,8 @@ var autoScroll = throttle(function (evt, options, rootEl, isFallback) {
        canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll');
      }
  

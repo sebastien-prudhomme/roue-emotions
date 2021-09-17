@@ -15,7 +15,9 @@
 </template>
 
 <script>
-export default {
-  name: 'Configuration'
-}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'AppPageConfiguration'
+})
 </script>

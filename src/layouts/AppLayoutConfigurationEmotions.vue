@@ -15,16 +15,18 @@
 </template>
 
 <script>
-import DialogIconText from 'components/DialogIconText'
+import { defineComponent } from 'vue'
+import AppDialogIconText from 'components/AppDialogIconText'
 
-export default {
-  name: 'ConfigurationEmotionsLayout',
+export default defineComponent({
+  name: 'AppLayoutConfigurationEmotions',
   methods: {
     createEmotion: function () {
       this.$q.dialog({
-        component: DialogIconText,
-        parent: this,
-        message: this.$t('i_feel')
+        component: AppDialogIconText,
+        componentProps: {
+          message: this.$t('i_feel')
+        }
       }).onOk(emotion => {
         this.$store.dispatch('configuration/createEmotion', { emotion })
       })
@@ -48,5 +50,5 @@ export default {
       })
     }
   }
-}
+})
 </script>

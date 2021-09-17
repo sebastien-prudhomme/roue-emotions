@@ -3,9 +3,9 @@
     <q-header>
       <q-toolbar>
         <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
-        <q-toolbar-title>{{ $t('my_actions') }}</q-toolbar-title>
-        <q-btn :aria-label="$t('reset')" flat icon="fas fa-trash-alt" stretch @click="resetActions" />
-        <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createAction" />
+        <q-toolbar-title>{{ $t('my_needs') }}</q-toolbar-title>
+        <q-btn :aria-label="$t('reset')" flat icon="fas fa-trash-alt" stretch @click="resetNeeds" />
+        <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createNeed" />
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -15,15 +15,16 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
-  name: 'ConfigurationActionsLayout',
+export default defineComponent({
+  name: 'AppLayoutConfigurationNeeds',
   methods: {
-    createAction: function () {
+    createNeed: function () {
       this.$q.dialog({
-        message: this.$t('i_can'),
+        message: this.$t('i_need'),
         prompt: {
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
@@ -42,13 +43,13 @@ export default {
           rounded: true
         },
         persistent: true
-      }).onOk(action => {
-        this.$store.dispatch('configuration/createAction', { action })
+      }).onOk(need => {
+        this.$store.dispatch('configuration/createNeed', { need })
       })
     },
-    resetActions: function () {
+    resetNeeds: function () {
       this.$q.dialog({
-        message: this.$t('reset_my_actions'),
+        message: this.$t('reset_my_needs'),
         ok: {
           flat: true,
           label: this.$t('reset'),
@@ -61,9 +62,9 @@ export default {
         },
         persistent: true
       }).onOk(() => {
-        this.$store.dispatch('configuration/resetActions')
+        this.$store.dispatch('configuration/resetNeeds')
       })
     }
   }
-}
+})
 </script>

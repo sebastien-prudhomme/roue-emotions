@@ -2,47 +2,54 @@
   <q-page>
     <div class="text-center">{{ $t('i_can') }}</div>
     <q-list>
-      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" :scroll-sensitivity="sensitivity" v-model="actions">
-        <q-item v-for="(action, index) in actions" :key="index" class="bg-white inset-shadow rounded-borders">
-          <q-item-section avatar>
-            <q-icon color="primary" name="fas fa-arrows-alt-v" />
-          </q-item-section>
-          <q-item-section class="text-center">{{ action }}</q-item-section>
-          <q-item-section side>
-            <q-btn :aria-label="$t('menu')" color="primary" dense flat icon="fas fa-ellipsis-v" round>
-              <q-menu>
-                <q-list>
-                  <q-item clickable v-close-popup @click="updateAction(index)">
-                    <q-item-section>{{ $t('edit') }}</q-item-section>
-                  </q-item>
-                  <q-item clickable v-close-popup @click="removeAction(index)">
-                    <q-item-section>{{ $t('remove') }}</q-item-section>
-                  </q-item>
-                </q-list>
-              </q-menu>
-            </q-btn>
-          </q-item-section>
-        </q-item>
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" item-key="index" :scroll-sensitivity="sensitivity" v-model="actionElements">
+        <template #item="{ element, index }">
+          <q-item class="bg-white inset-shadow rounded-borders">
+            <q-item-section avatar>
+              <q-icon color="primary" name="fas fa-arrows-alt-v" />
+            </q-item-section>
+            <q-item-section class="text-center">{{ element.action }}</q-item-section>
+            <q-item-section side>
+              <q-btn :aria-label="$t('menu')" color="primary" dense flat icon="fas fa-ellipsis-v" round>
+                <q-menu>
+                  <q-list>
+                    <q-item clickable v-close-popup @click="updateAction(index)">
+                      <q-item-section>{{ $t('edit') }}</q-item-section>
+                    </q-item>
+                    <q-item clickable v-close-popup @click="removeAction(index)">
+                      <q-item-section>{{ $t('remove') }}</q-item-section>
+                    </q-item>
+                  </q-list>
+                </q-menu>
+              </q-btn>
+            </q-item-section>
+          </q-item>
+        </template>
       </vue-draggable>
     </q-list>
   </q-page>
 </template>
 
 <script>
+import { defineComponent, defineAsyncComponent } from 'vue'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
-  name: 'ConfigurationActions',
+export default defineComponent({
+  name: 'AppPageConfigurationActions',
   components: {
-    VueDraggable: () => import('vuedraggable')
+    VueDraggable: defineAsyncComponent(() => import('vuedraggable'))
   },
   computed: {
-    actions: {
+    actionElements: {
       get: function () {
-        return this.$store.state.configuration.actions
+        const actions = this.$store.state.configuration.actions
+
+        return actions.map((action, index) => ({ action, index }))
       },
-      set: function (actions) {
+      set: function (actionElements) {
+        const actions = actionElements.map(actionsElement => actionsElement.action)
+
         this.$store.commit('configuration/setActions', { actions })
       }
     },
@@ -104,5 +111,5 @@ export default {
       })
     }
   }
-}
+})
 </script>

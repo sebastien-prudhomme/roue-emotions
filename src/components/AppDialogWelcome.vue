@@ -23,10 +23,15 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import semver from 'semver'
 
-export default {
-  name: 'DialogWelcome',
+export default defineComponent({
+  name: 'AppDialogWelcome',
+  emits: [
+    'hide',
+    'ok'
+  ],
   computed: {
     haveVersion: function () {
       return this.$store.state.application.version !== null
@@ -42,7 +47,7 @@ export default {
         const key = `release_notes.${version.replaceAll('.', '_')}`
 
         if (this.$te(key)) {
-          accumulator.push({ version, messages: this.$t(key) })
+          accumulator.push({ version, messages: this.$tm(key) })
         }
 
         return accumulator
@@ -81,5 +86,5 @@ export default {
       this.hide()
     }
   }
-}
+})
 </script>

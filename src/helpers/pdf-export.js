@@ -273,9 +273,9 @@ export default async function (emotions, needs, actions, fileName, paperSize) {
   doc.translate(pageWidth / 2, pageHeight / 2)
 
   wheelCache(doc, emotions, needs, actions, wheelRadius)
-  wheelCacheOfTexts(doc, actions, actionsRadius, needsRadius, i18n.t('i_can'))
-  wheelCacheOfTexts(doc, needs, needsRadius, emotionsRadius, i18n.t('i_need'))
-  wheelCacheOfIconsTexts(doc, emotions, emotionsRadius, iconsRadius, i18n.t('i_feel'))
+  wheelCacheOfTexts(doc, actions, actionsRadius, needsRadius, i18n.global.t('i_can'))
+  wheelCacheOfTexts(doc, needs, needsRadius, emotionsRadius, i18n.global.t('i_need'))
+  wheelCacheOfIconsTexts(doc, emotions, emotionsRadius, iconsRadius, i18n.global.t('i_feel'))
 
   doc.end()
 }
