@@ -17,10 +17,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
+export default defineComponent({
   name: 'DialogIconText',
   props: {
     message: {
@@ -184,5 +185,5 @@ export default {
       this.hide()
     }
   }
-}
+})
 </script>

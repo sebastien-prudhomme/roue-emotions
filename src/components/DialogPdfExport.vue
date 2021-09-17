@@ -26,12 +26,17 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import pdfExport from '../helpers/pdf-export'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default {
+export default defineComponent({
   name: 'DialogPdfExport',
+  emits: [
+    'hide',
+    'ok'
+  ],
   data () {
     return {
       fileName: this.$t('file_name_wheel_emotions'),
@@ -77,7 +82,7 @@ export default {
       this.hide()
     }
   }
-}
+})
 </script>
 
 <style lang="sass">

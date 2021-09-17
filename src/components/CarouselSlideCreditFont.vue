@@ -6,9 +6,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { openURL } from 'quasar'
 
-export default {
+export default defineComponent({
   name: 'CarouselSlideCreditFont',
   props: {
     name: {
@@ -21,5 +22,5 @@ export default {
       openURL('https://fonts.google.com/')
     }
   }
-}
+})
 </script>

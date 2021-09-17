@@ -8,7 +8,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'Carousel',
   props: {
     title: {
@@ -23,8 +25,8 @@ export default {
   },
   computed: {
     arrows: function () {
-      return this.$slots.default.length > 1
+      return this.$slots.default().length > 1
     }
   }
-}
+})
 </script>

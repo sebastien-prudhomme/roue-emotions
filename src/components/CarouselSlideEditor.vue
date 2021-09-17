@@ -6,9 +6,10 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue'
 import { openURL } from 'quasar'
 
-export default {
+export default defineComponent({
   name: 'CarouselSlideEditor',
   props: {
     name: {
@@ -21,5 +22,5 @@ export default {
       openURL('https://twitter.com/CowboySysop')
     }
   }
-}
+})
 </script>
