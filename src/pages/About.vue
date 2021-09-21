@@ -23,22 +23,23 @@
 </template>
 
 <script>
+import { defineComponent, defineAsyncComponent } from 'vue'
 import { openURL } from 'quasar'
-import { version } from '../../package.json'
+import packageJSON from '../../package.json'
 
-export default {
+export default defineComponent({
   name: 'About',
   components: {
-    Carousel: () => import('components/Carousel'),
-    CarouselSlideConcept: () => import('components/CarouselSlideConcept'),
-    CarouselSlideCreditFont: () => import('components/CarouselSlideCreditFont'),
-    CarouselSlideCreditOpenmoji: () => import('components/CarouselSlideCreditOpenmoji'),
-    CarouselSlideCreditQuasar: () => import('components/CarouselSlideCreditQuasar'),
-    CarouselSlideEditor: () => import('components/CarouselSlideEditor')
+    Carousel: defineAsyncComponent(() => import('components/Carousel')),
+    CarouselSlideConcept: defineAsyncComponent(() => import('components/CarouselSlideConcept')),
+    CarouselSlideCreditFont: defineAsyncComponent(() => import('components/CarouselSlideCreditFont')),
+    CarouselSlideCreditOpenmoji: defineAsyncComponent(() => import('components/CarouselSlideCreditOpenmoji')),
+    CarouselSlideCreditQuasar: defineAsyncComponent(() => import('components/CarouselSlideCreditQuasar')),
+    CarouselSlideEditor: defineAsyncComponent(() => import('components/CarouselSlideEditor'))
   },
   computed: {
     version: function () {
-      return version
+      return packageJSON.version
     }
   },
   methods: {
@@ -46,5 +47,5 @@ export default {
       openURL('https://sites.google.com/view/roue-emotions/politique-confidentialite')
     }
   }
-}
+})
 </script>
