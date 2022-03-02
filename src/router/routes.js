@@ -41,6 +41,13 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/AppPageConfigurationNeeds.vue') }
     ]
+  },
+  {
+    path: '/configuration/profiles',
+    component: () => import('layouts/AppLayoutConfigurationProfiles.vue'),
+    children: [
+      { path: '', component: () => import('pages/AppPageConfigurationProfiles.vue') }
+    ]
   }
 ]
 

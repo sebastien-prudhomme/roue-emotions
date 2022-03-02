@@ -47,6 +47,7 @@ export default {
   my_actions: 'My actions',
   my_emotions: 'My emotions',
   my_needs: 'My needs',
+  my_profiles: 'My profiles',
   my_wheel_of_emotions: 'My wheel of emotions',
   needs: {
     encouragement: 'Encouragement',
@@ -70,6 +71,9 @@ export default {
   paper_size_letter: 'Letter',
   pdf_export: 'PDF export',
   privacy_policy: 'Privacy policy',
+  profile: 'Profile:',
+  profile_name: 'Profile name:',
+  profile_name_default: 'Default',
   publisher: 'Publisher:',
   quasar_framework: 'Quasar framework',
   release_notes: {
@@ -88,10 +92,12 @@ export default {
   remove_this_action: 'Remove this action?',
   remove_this_emotion: 'Remove this emotion?',
   remove_this_need: 'Remove this need?',
+  remove_this_profile: 'Remove this profile?',
   reset: 'Reset',
   reset_my_actions: 'Reset my actions?',
   reset_my_emotions: 'Reset my emotions?',
   reset_my_needs: 'Reset my needs?',
+  reset_my_profiles: 'Reset my profiles?',
   save: 'Save',
   schoolbell_font: 'Schoolbell font',
   validate: {

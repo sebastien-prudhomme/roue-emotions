@@ -2,11 +2,11 @@
   <q-page>
     <div class="text-center">{{ $t('i_feel') }}</div>
     <q-list>
-      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" item-key="index" :scroll-sensitivity="sensitivity" v-model="emotionElements">
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar .q-btn" item-key="index" :scroll-sensitivity="sensitivity" v-model="emotionElements">
         <template #item="{ element, index }">
           <q-item class="bg-white inset-shadow rounded-borders">
             <q-item-section avatar>
-              <q-icon color="primary" name="fas fa-arrows-alt-v" />
+              <q-btn color="primary" dense flat icon="fas fa-arrows-alt-v" round />
             </q-item-section>
             <q-item-section class="items-center">
               <q-icon :name="element.emotion.icon" />
@@ -45,7 +45,7 @@ export default defineComponent({
   computed: {
     emotionElements: {
       get: function () {
-        const emotions = this.$store.state.configuration.emotions
+        const emotions = this.$store.getters['configuration/emotions']
 
         return emotions.map((emotion, index) => ({ emotion, index }))
       },
@@ -88,7 +88,7 @@ export default defineComponent({
       })
     },
     updateEmotion: function (index) {
-      const emotion = this.$store.state.configuration.emotions[index]
+      const emotion = this.$store.getters['configuration/emotions'][index]
 
       this.$q.dialog({
         component: AppDialogIconText,

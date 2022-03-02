@@ -1,3 +1,5 @@
+import { i18n } from '../boot/i18n'
+
 export default function (storage) {
   storage.setItem('@@', 1)
   storage.removeItem('@@')
@@ -16,6 +18,29 @@ export default function (storage) {
       }
 
       newState.configuration = state.configuration
+
+      state = newState
+    }
+
+    if (state.application.schema === '1.0.0') {
+      const newState = {}
+
+      newState.application = {
+        schema: '1.4.0',
+        version: state.application.version
+      }
+
+      const profile = {
+        name: i18n.global.t('profile_name_default')
+      }
+
+      newState.configuration = {
+        profileIndex: 0,
+        profiles: [{
+          ...profile,
+          ...state.configuration
+        }]
+      }
 
       state = newState
     }

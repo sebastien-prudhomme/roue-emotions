@@ -47,6 +47,7 @@ export default {
   my_actions: 'Mes actions',
   my_emotions: 'Mes émotions',
   my_needs: 'Mes besoins',
+  my_profiles: 'Mes profils',
   my_wheel_of_emotions: 'Ma roue des émotions',
   needs: {
     encouragement: 'D\'encouragement',
@@ -70,6 +71,9 @@ export default {
   paper_size_letter: 'Letter',
   pdf_export: 'Export PDF',
   privacy_policy: 'Politique de confidentialité',
+  profile: 'Profil :',
+  profile_name: 'Nom du profil :',
+  profile_name_default: 'Défaut',
   publisher: 'Éditeur :',
   quasar_framework: 'Cadriciel Quasar',
   release_notes: {
@@ -88,10 +92,12 @@ export default {
   remove_this_action: 'Supprimer cette action ?',
   remove_this_emotion: 'Supprimer cette émotion ?',
   remove_this_need: 'Supprimer ce besoin ?',
+  remove_this_profile: 'Supprimer ce profil ?',
   reset: 'Réinitialiser',
   reset_my_actions: 'Réinitialiser mes actions ?',
   reset_my_emotions: 'Réinitialiser mes émotions ?',
   reset_my_needs: 'Réinitialiser mes besoins ?',
+  reset_my_profiles: 'Réinitialiser mes profils ?',
   save: 'Sauvegarder',
   schoolbell_font: 'Police Schoolbell',
   validate: {

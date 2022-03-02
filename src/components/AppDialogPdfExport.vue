@@ -74,7 +74,7 @@ export default defineComponent({
     submitDialog: async function () {
       this.loading = true
 
-      await pdfExport(this.$store.state.configuration.emotions, this.$store.state.configuration.needs, this.$store.state.configuration.actions, this.fileName.trim(), this.paperSize)
+      await pdfExport(this.$store.getters['configuration/emotions'], this.$store.getters['configuration/needs'], this.$store.getters['configuration/actions'], this.fileName.trim(), this.paperSize)
 
       this.loading = false
 

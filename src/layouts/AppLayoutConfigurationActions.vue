@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
         <q-toolbar-title>{{ $t('my_actions') }}</q-toolbar-title>
-        <q-btn :aria-label="$t('reset')" flat icon="fas fa-trash-alt" stretch @click="resetActions" />
+        <q-btn :aria-label="$t('reset')" flat icon="fas fa-recycle" stretch @click="resetActions" />
         <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createAction" />
       </q-toolbar>
     </q-header>
@@ -51,7 +51,9 @@ export default defineComponent({
       this.$q.dialog({
         message: this.$t('reset_my_actions'),
         ok: {
+          color: 'negative',
           flat: true,
+          icon: 'fas fa-exclamation-circle',
           label: this.$t('reset'),
           rounded: true
         },

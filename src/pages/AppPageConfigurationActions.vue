@@ -2,11 +2,11 @@
   <q-page>
     <div class="text-center">{{ $t('i_can') }}</div>
     <q-list>
-      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" item-key="index" :scroll-sensitivity="sensitivity" v-model="actionElements">
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar .q-btn" item-key="index" :scroll-sensitivity="sensitivity" v-model="actionElements">
         <template #item="{ element, index }">
           <q-item class="bg-white inset-shadow rounded-borders">
             <q-item-section avatar>
-              <q-icon color="primary" name="fas fa-arrows-alt-v" />
+              <q-btn color="primary" dense flat icon="fas fa-arrows-alt-v" round />
             </q-item-section>
             <q-item-section class="text-center">{{ element.action }}</q-item-section>
             <q-item-section side>
@@ -43,7 +43,7 @@ export default defineComponent({
   computed: {
     actionElements: {
       get: function () {
-        const actions = this.$store.state.configuration.actions
+        const actions = this.$store.getters['configuration/actions']
 
         return actions.map((action, index) => ({ action, index }))
       },
@@ -92,7 +92,7 @@ export default defineComponent({
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
           maxlength: 40,
-          model: this.$store.state.configuration.actions[index],
+          model: this.$store.getters['configuration/actions'][index],
           outlined: true
         },
         ok: {

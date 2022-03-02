@@ -3,9 +3,9 @@
     <q-header>
       <q-toolbar>
         <q-btn :aria-label="$t('configuration')" flat icon="fas fa-arrow-left" stretch to="/configuration" />
-        <q-toolbar-title>{{ $t('my_needs') }}</q-toolbar-title>
-        <q-btn :aria-label="$t('reset')" flat icon="fas fa-recycle" stretch @click="resetNeeds" />
-        <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createNeed" />
+        <q-toolbar-title>{{ $t('my_profiles') }}</q-toolbar-title>
+        <q-btn :aria-label="$t('reset')" flat icon="fas fa-recycle" stretch @click="resetProfiles" />
+        <q-btn :aria-label="$t('add')" flat icon="fas fa-plus" stretch @click="createProfile" />
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -20,15 +20,15 @@ import validate from '../helpers/validate'
 import Joi from 'joi'
 
 export default defineComponent({
-  name: 'AppLayoutConfigurationNeeds',
+  name: 'AppLayoutConfigurationProfiles',
   methods: {
-    createNeed: function () {
+    createProfile: function () {
       this.$q.dialog({
-        message: this.$t('i_need'),
+        message: this.$t('profile_name'),
         prompt: {
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 40,
+          maxlength: 10,
           model: '',
           outlined: true
         },
@@ -43,13 +43,13 @@ export default defineComponent({
           rounded: true
         },
         persistent: true
-      }).onOk(need => {
-        this.$store.dispatch('configuration/createNeed', { need })
+      }).onOk(profile => {
+        this.$store.dispatch('configuration/createProfile', { profile })
       })
     },
-    resetNeeds: function () {
+    resetProfiles: function () {
       this.$q.dialog({
-        message: this.$t('reset_my_needs'),
+        message: this.$t('reset_my_profiles'),
         ok: {
           color: 'negative',
           flat: true,
@@ -64,7 +64,7 @@ export default defineComponent({
         },
         persistent: true
       }).onOk(() => {
-        this.$store.dispatch('configuration/resetNeeds')
+        this.$store.dispatch('configuration/resetProfiles')
       })
     }
   }

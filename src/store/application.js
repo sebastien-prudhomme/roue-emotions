@@ -2,7 +2,7 @@ export default {
   namespaced: true,
   state () {
     return {
-      schema: '1.0.0',
+      schema: '1.4.0',
       version: null
     }
   },

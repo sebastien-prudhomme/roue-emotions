@@ -4,6 +4,7 @@
       <q-toolbar>
         <q-btn :aria-label="$t('menu')" flat icon="fas fa-bars" stretch @click="switchDrawer" />
         <q-toolbar-title>{{ $t('my_wheel_of_emotions') }}</q-toolbar-title>
+        <q-avatar>{{ profileInitial }}</q-avatar>
       </q-toolbar>
     </q-header>
     <q-drawer behavior="mobile" v-model="drawerVisible" :width="drawerWidth">
@@ -55,6 +56,9 @@ export default defineComponent({
       const vh = this.$q.screen.height / 100
 
       return 32 * Math.min(2 * vw, 1 * vh)
+    },
+    profileInitial: function () {
+      return this.$store.state.configuration.profiles[this.$store.state.configuration.profileIndex].name.substring(0, 1).toUpperCase()
     }
   },
   methods: {

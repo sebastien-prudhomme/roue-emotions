@@ -2,11 +2,11 @@
   <q-page>
     <div class="text-center">{{ $t('i_need') }}</div>
     <q-list>
-      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar" item-key="index" :scroll-sensitivity="sensitivity" v-model="needElements">
+      <vue-draggable animation="150" class="q-gutter-y-md" force-fallback="true" handle=".q-item__section--avatar .q-btn" item-key="index" :scroll-sensitivity="sensitivity" v-model="needElements">
         <template #item="{ element, index }">
           <q-item class="bg-white inset-shadow rounded-borders">
             <q-item-section avatar>
-              <q-icon color="primary" name="fas fa-arrows-alt-v" />
+              <q-btn color="primary" dense flat icon="fas fa-arrows-alt-v" round />
             </q-item-section>
             <q-item-section class="text-center">{{ element.need }}</q-item-section>
             <q-item-section side>
@@ -43,7 +43,7 @@ export default defineComponent({
   computed: {
     needElements: {
       get: function () {
-        const needs = this.$store.state.configuration.needs
+        const needs = this.$store.getters['configuration/needs']
 
         return needs.map((need, index) => ({ need, index }))
       },
@@ -92,7 +92,7 @@ export default defineComponent({
           counter: true,
           isValid: validate(Joi.string().trim().min(1)),
           maxlength: 40,
-          model: this.$store.state.configuration.needs[index],
+          model: this.$store.getters['configuration/needs'][index],
           outlined: true
         },
         ok: {

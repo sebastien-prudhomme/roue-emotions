@@ -1,6 +1,13 @@
 <template>
   <q-page>
     <q-list class="q-gutter-y-md">
+      <q-item class="bg-white inset-shadow rounded-borders" to="/configuration/profiles">
+        <q-item-section class="text-center">{{ $t('my_profiles') }}</q-item-section>
+      </q-item>
+      <q-separator />
+      <q-item>
+        <q-item-section class="text-center">{{ $t('profile') }} {{ profileName }}</q-item-section>
+      </q-item>
       <q-item class="bg-white inset-shadow rounded-borders" to="/configuration/emotions">
         <q-item-section class="text-center">{{ $t('my_emotions') }}</q-item-section>
       </q-item>
@@ -18,6 +25,11 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'AppPageConfiguration'
+  name: 'AppPageConfiguration',
+  computed: {
+    profileName: function () {
+      return this.$store.state.configuration.profiles[this.$store.state.configuration.profileIndex].name
+    }
+  }
 })
 </script>

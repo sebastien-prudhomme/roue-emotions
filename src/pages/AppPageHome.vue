@@ -29,13 +29,13 @@ export default defineComponent({
   },
   computed: {
     emotions: function () {
-      return this.$store.state.configuration.emotions
+      return this.$store.getters['configuration/emotions']
     },
     needs: function () {
-      return this.$store.state.configuration.needs
+      return this.$store.getters['configuration/needs']
     },
     actions: function () {
-      return this.$store.state.configuration.actions
+      return this.$store.getters['configuration/actions']
     }
   },
   mounted: function () {

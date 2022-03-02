@@ -59,6 +59,11 @@ body {
   font-size: ratio(3); // default: 14px
 }
 
+.q-avatar__content {
+  font-size: ratio(4); // default: 0.5em;
+  line-height: ratio(4); // default: 0.5em;
+}
+
 .q-btn .q-icon {
   font-size: ratio(4); // default: 1.715em
 }
@@ -72,8 +77,8 @@ body {
 }
 
 .q-btn--dense.q-btn--round {
-  min-width: ratio(4); // default: 2.4em
-  min-height: ratio(4); // default: 2.4em
+  min-width: ratio(6); // default: 2.4em
+  min-height: ratio(6); // default: 2.4em
 }
 
 .q-btn--rounded {
@@ -107,11 +112,11 @@ body {
 }
 
 .q-carousel__next-arrow--horizontal {
-  right: ratio(2); // default: 16px
+  right: ratio(1); // default: 16px
 }
 
 .q-carousel__prev-arrow--horizontal {
-  left: ratio(2); // default: 16px
+  left: ratio(1); // default: 16px
 }
 
 .q-carousel__slide {
@@ -236,7 +241,7 @@ body {
 
 .q-item {
   min-height: ratio(10); // default: 48px
-  padding: ratio(2); // 8px 16px
+  padding: ratio(2) ratio(1); // 8px 16px
 }
 
 .q-item__section--avatar {
@@ -248,11 +253,11 @@ body {
 }
 
 .q-item__section--main ~ .q-item__section--side {
-  padding-left: ratio(2); // default: 16px
+  padding-left: ratio(1); // default: 16px
 }
 
 .q-item__section--side {
-  padding-right: ratio(2); // default: 16px
+  padding-right: ratio(1); // default: 16px
 }
 
 .q-item__section--side > .q-icon {
@@ -262,6 +267,14 @@ body {
 .q-page {
   padding: ratio(2);
   background-color: $yellow-4;
+}
+
+.q-radio__icon {
+  font-size: ratio(4);
+}
+
+.q-radio__inner {
+  font-size: ratio(6);
 }
 
 .q-scrollarea > div > div {
@@ -293,6 +306,12 @@ body {
 
 .q-toolbar__title:first-child {
   padding-left: ratio(2); // default: 0
+}
+
+.q-toolbar .q-avatar {
+  margin: ratio(1) ratio(1);
+  background-color: $blue-6;
+  font-size: ratio(6); // default: 39px
 }
 
 .rounded-borders {
