@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14.19.0
 
       - name: Install Node Packages
         run: npm ci
@@ -42,7 +42,7 @@ jobs:
           alias: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
 
       - name: Upload Google Play
-        uses: r0adkll/upload-google-play@v1
+        uses: r0adkll/upload-google-play@v1.0.15
         with:
           serviceAccountJsonPlainText: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
           packageName: com.cowboysysop.roue_emotions
@@ -58,7 +58,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14.19.0
 
       - name: Install Node Packages
         run: npm ci
@@ -87,7 +87,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14.19.0
 
       - name: Install Node Packages
         run: npm ci
