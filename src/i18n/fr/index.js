@@ -86,6 +86,9 @@ export default {
     ],
     '1_3_0': [
       'Ajout de l\'export PDF'
+    ],
+    '1_4_0': [
+      'Ajout de profils de configuration'
     ]
   },
   remove: 'Supprimer',
