@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Install Cordova
-        run: npm install -g cordova
+        run: npm install -g cordova@11.0.0
 
       - name: Setup Java
         uses: actions/setup-java@v2
