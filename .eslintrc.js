@@ -11,7 +11,8 @@ module.exports = {
   },
 
   env: {
-    browser: true
+    browser: true,
+    'vue/setup-compiler-macros': true
   },
 
   // Rules order is important, please avoid shuffling them
@@ -66,6 +67,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
+
     'prefer-promise-reject-errors': 'off',
 
     // allow debugger during development only

@@ -6,5 +6,10 @@
   "editor.codeActionsOnSave": [
     "source.fixAll.eslint"
   ],
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"]
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "vue"
+  ]
 }

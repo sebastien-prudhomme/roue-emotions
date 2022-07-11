@@ -4,6 +4,8 @@ Une roue pour identifier ses émotions, ses besoins et les solutions pour aller 
 
 ## Install the dependencies
 ```bash
+yarn
+# or
 npm install
 ```
 
@@ -14,6 +16,8 @@ quasar dev
 
 ### Lint the files
 ```bash
+yarn lint
+# or
 npm run lint
 ```
 
@@ -23,4 +27,4 @@ quasar build
 ```
 
 ### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
