@@ -25,68 +25,73 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+import { i18n } from '../boot/i18n'
+
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default defineComponent({
-  name: 'AppPageConfigurationProfiles',
-  computed: {
-    profileIndex: function () {
-      return this.$store.state.configuration.profileIndex
-    },
-    profiles: function () {
-      return this.$store.state.configuration.profiles
-    }
-  },
-  methods: {
-    removeProfile: function (index) {
-      this.$q.dialog({
-        message: this.$t('remove_this_profile'),
-        ok: {
-          flat: true,
-          label: this.$t('remove'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(() => {
-        this.$store.dispatch('configuration/removeProfile', { index })
-      })
-    },
-    setProfileIndex: function (profileIndex) {
-      this.$store.dispatch('configuration/setProfileIndex', { profileIndex })
-    },
-    updateProfile: function (index) {
-      this.$q.dialog({
-        message: this.$t('profile_name'),
-        prompt: {
-          counter: true,
-          isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 10,
-          model: this.$store.state.configuration.profiles[index].name,
-          outlined: true
-        },
-        ok: {
-          flat: true,
-          label: this.$t('save'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(profile => {
-        this.$store.dispatch('configuration/updateProfile', { index, profile })
-      })
-    }
-  }
+const store = useStore()
+const $q = useQuasar()
+const $t = i18n.global.t
+
+const profileIndex = computed(() => {
+  return store.state.configuration.profileIndex
 })
+
+const profiles = computed(() => {
+  return store.state.configuration.profiles
+})
+
+function removeProfile (index) {
+  $q.dialog({
+    message: $t('remove_this_profile'),
+    ok: {
+      flat: true,
+      label: $t('remove'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(() => {
+    store.dispatch('configuration/removeProfile', { index })
+  })
+}
+
+function setProfileIndex (profileIndex) {
+  store.dispatch('configuration/setProfileIndex', { profileIndex })
+}
+
+function updateProfile (index) {
+  $q.dialog({
+    message: $t('profile_name'),
+    prompt: {
+      counter: true,
+      isValid: validate(Joi.string().trim().min(1)),
+      maxlength: 10,
+      model: store.state.configuration.profiles[index].name,
+      outlined: true
+    },
+    ok: {
+      flat: true,
+      label: $t('save'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(profile => {
+    store.dispatch('configuration/updateProfile', { index, profile })
+  })
+}
 </script>

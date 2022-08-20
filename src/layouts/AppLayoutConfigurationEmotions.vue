@@ -14,43 +14,46 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+import { i18n } from '../boot/i18n'
+
 import AppDialogIconText from 'components/AppDialogIconText'
 
-export default defineComponent({
-  name: 'AppLayoutConfigurationEmotions',
-  methods: {
-    createEmotion: function () {
-      this.$q.dialog({
-        component: AppDialogIconText,
-        componentProps: {
-          message: this.$t('i_feel')
-        }
-      }).onOk(emotion => {
-        this.$store.dispatch('configuration/createEmotion', { emotion })
-      })
-    },
-    resetEmotions: function () {
-      this.$q.dialog({
-        message: this.$t('reset_my_emotions'),
-        ok: {
-          color: 'negative',
-          flat: true,
-          icon: 'fas fa-exclamation-circle',
-          label: this.$t('reset'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(() => {
-        this.$store.dispatch('configuration/resetEmotions')
-      })
+const store = useStore()
+const $q = useQuasar()
+const $t = i18n.global.t
+
+function createEmotion () {
+  $q.dialog({
+    component: AppDialogIconText,
+    componentProps: {
+      message: $t('i_feel')
     }
-  }
-})
+  }).onOk(emotion => {
+    store.dispatch('configuration/createEmotion', { emotion })
+  })
+}
+
+function resetEmotions () {
+  $q.dialog({
+    message: $t('reset_my_emotions'),
+    ok: {
+      color: 'negative',
+      flat: true,
+      icon: 'fas fa-exclamation-circle',
+      label: $t('reset'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(() => {
+    store.dispatch('configuration/resetEmotions')
+  })
+}
 </script>

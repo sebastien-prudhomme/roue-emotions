@@ -22,30 +22,24 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent, defineAsyncComponent } from 'vue'
+<script setup>
+import { computed } from 'vue'
 import { openURL } from 'quasar'
+
+import AppCarousel from 'components/AppCarousel'
+import AppCarouselSlideConcept from 'components/AppCarouselSlideConcept'
+import AppCarouselSlideCreditFont from 'components/AppCarouselSlideCreditFont'
+import AppCarouselSlideCreditOpenmoji from 'components/AppCarouselSlideCreditOpenmoji'
+import AppCarouselSlideCreditQuasar from 'components/AppCarouselSlideCreditQuasar'
+import AppCarouselSlideEditor from 'components/AppCarouselSlideEditor'
+
 import packageJSON from '../../package.json'
 
-export default defineComponent({
-  name: 'AppPageAbout',
-  components: {
-    AppCarousel: defineAsyncComponent(() => import('components/AppCarousel')),
-    AppCarouselSlideConcept: defineAsyncComponent(() => import('components/AppCarouselSlideConcept')),
-    AppCarouselSlideCreditFont: defineAsyncComponent(() => import('components/AppCarouselSlideCreditFont')),
-    AppCarouselSlideCreditOpenmoji: defineAsyncComponent(() => import('components/AppCarouselSlideCreditOpenmoji')),
-    AppCarouselSlideCreditQuasar: defineAsyncComponent(() => import('components/AppCarouselSlideCreditQuasar')),
-    AppCarouselSlideEditor: defineAsyncComponent(() => import('components/AppCarouselSlideEditor'))
-  },
-  computed: {
-    version: function () {
-      return packageJSON.version
-    }
-  },
-  methods: {
-    open: function () {
-      openURL('https://sites.google.com/view/roue-emotions/politique-confidentialite')
-    }
-  }
+const version = computed(() => {
+  return packageJSON.version
 })
+
+function open () {
+  openURL('https://sites.google.com/view/roue-emotions/politique-confidentialite')
+}
 </script>

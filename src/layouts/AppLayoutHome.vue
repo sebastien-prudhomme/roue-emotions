@@ -39,39 +39,38 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+
 import AppDialogPdfExport from 'components/AppDialogPdfExport'
 
-export default defineComponent({
-  name: 'AppLayoutHome',
-  data () {
-    return {
-      drawerVisible: false
-    }
-  },
-  computed: {
-    drawerWidth: function () {
-      const vw = this.$q.screen.width / 100
-      const vh = this.$q.screen.height / 100
+const store = useStore()
+const $q = useQuasar()
 
-      return 32 * Math.min(2 * vw, 1 * vh)
-    },
-    profileInitial: function () {
-      return this.$store.state.configuration.profiles[this.$store.state.configuration.profileIndex].name.substring(0, 1).toUpperCase()
-    }
-  },
-  methods: {
-    pdfExport: function () {
-      this.switchDrawer()
+const drawerVisible = ref(false)
 
-      this.$q.dialog({
-        component: AppDialogPdfExport
-      })
-    },
-    switchDrawer: function () {
-      this.drawerVisible = !this.drawerVisible
-    }
-  }
+const drawerWidth = computed(() => {
+  const vw = $q.screen.width / 100
+  const vh = $q.screen.height / 100
+
+  return 32 * Math.min(2 * vw, 1 * vh)
 })
+
+const profileInitial = computed(() => {
+  return store.state.configuration.profiles[store.state.configuration.profileIndex].name.substring(0, 1).toUpperCase()
+})
+
+function pdfExport () {
+  switchDrawer()
+
+  $q.dialog({
+    component: AppDialogPdfExport
+  })
+}
+
+function switchDrawer () {
+  drawerVisible.value = !drawerVisible.value
+}
 </script>

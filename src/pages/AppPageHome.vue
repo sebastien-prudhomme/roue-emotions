@@ -14,38 +14,41 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent, defineAsyncComponent } from 'vue'
-import semver from 'semver'
-import packageJSON from '../../package.json'
+<script setup>
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+
+import AppCarousel from 'components/AppCarousel'
+import AppCarouselSlideIconText from 'components/AppCarouselSlideIconText'
+import AppCarouselSlideText from 'components/AppCarouselSlideText'
 import AppDialogWelcome from 'components/AppDialogWelcome'
 
-export default defineComponent({
-  name: 'AppPageHome',
-  components: {
-    AppCarousel: defineAsyncComponent(() => import('components/AppCarousel')),
-    AppCarouselSlideIconText: defineAsyncComponent(() => import('components/AppCarouselSlideIconText')),
-    AppCarouselSlideText: defineAsyncComponent(() => import('components/AppCarouselSlideText'))
-  },
-  computed: {
-    emotions: function () {
-      return this.$store.getters['configuration/emotions']
-    },
-    needs: function () {
-      return this.$store.getters['configuration/needs']
-    },
-    actions: function () {
-      return this.$store.getters['configuration/actions']
-    }
-  },
-  mounted: function () {
-    if (this.$store.state.application.version === null || semver.lt(this.$store.state.application.version, packageJSON.version)) {
-      this.$q.dialog({
-        component: AppDialogWelcome
-      }).onOk(() => {
-        this.$store.commit('application/setVersion', { version: packageJSON.version })
-      })
-    }
+import semver from 'semver'
+import packageJSON from '../../package.json'
+
+const store = useStore()
+const $q = useQuasar()
+
+const emotions = computed(() => {
+  return store.getters['configuration/emotions']
+})
+
+const needs = computed(() => {
+  return store.getters['configuration/needs']
+})
+
+const actions = computed(() => {
+  return store.getters['configuration/actions']
+})
+
+onMounted(() => {
+  if (store.state.application.version === null || semver.lt(store.state.application.version, packageJSON.version)) {
+    $q.dialog({
+      component: AppDialogWelcome
+    }).onOk(() => {
+      store.commit('application/setVersion', { version: packageJSON.version })
+    })
   }
 })
 </script>

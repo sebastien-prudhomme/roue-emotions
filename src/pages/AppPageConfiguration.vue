@@ -21,15 +21,13 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 
-export default defineComponent({
-  name: 'AppPageConfiguration',
-  computed: {
-    profileName: function () {
-      return this.$store.state.configuration.profiles[this.$store.state.configuration.profileIndex].name
-    }
-  }
+const store = useStore()
+
+const profileName = computed(() => {
+  return store.state.configuration.profiles[store.state.configuration.profileIndex].name
 })
 </script>

@@ -30,86 +30,89 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent, defineAsyncComponent } from 'vue'
+<script setup>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+import { i18n } from '../boot/i18n'
+
+import VueDraggable from 'vuedraggable'
+
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default defineComponent({
-  name: 'AppPageConfigurationNeeds',
-  components: {
-    VueDraggable: defineAsyncComponent(() => import('vuedraggable'))
+const store = useStore()
+const $q = useQuasar()
+const $t = i18n.global.t
+
+const needElements = computed({
+  get () {
+    const needs = store.getters['configuration/needs']
+
+    return needs.map((need, index) => ({ need, index }))
   },
-  computed: {
-    needElements: {
-      get: function () {
-        const needs = this.$store.getters['configuration/needs']
+  set (needElements) {
+    const needs = needElements.map(needElement => needElement.need)
 
-        return needs.map((need, index) => ({ need, index }))
-      },
-      set: function (needElements) {
-        const needs = needElements.map(needElement => needElement.need)
-
-        this.$store.commit('configuration/setNeeds', { needs })
-      }
-    },
-    sensitivity: function () {
-      const vw = this.$q.screen.width / 100
-      const vh = this.$q.screen.height / 100
-      const sensitivity = 8 * Math.min(2 * vw, 1 * vh)
-
-      return {
-        top: sensitivity + 8 * Math.min(2 * vw, 1 * vh), // Take header into account
-        bottom: sensitivity,
-        left: 0,
-        right: 0
-      }
-    }
-  },
-  methods: {
-    removeNeed: function (index) {
-      this.$q.dialog({
-        message: this.$t('remove_this_need'),
-        ok: {
-          flat: true,
-          label: this.$t('remove'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(() => {
-        this.$store.dispatch('configuration/removeNeed', { index })
-      })
-    },
-    updateNeed: function (index) {
-      this.$q.dialog({
-        message: this.$t('i_need'),
-        prompt: {
-          counter: true,
-          isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 40,
-          model: this.$store.getters['configuration/needs'][index],
-          outlined: true
-        },
-        ok: {
-          flat: true,
-          label: this.$t('save'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(need => {
-        this.$store.dispatch('configuration/updateNeed', { index, need })
-      })
-    }
+    store.commit('configuration/setNeeds', { needs })
   }
 })
+
+const sensitivity = computed(() => {
+  const vw = $q.screen.width / 100
+  const vh = $q.screen.height / 100
+  const sensitivity = 8 * Math.min(2 * vw, 1 * vh)
+
+  return {
+    top: sensitivity + 8 * Math.min(2 * vw, 1 * vh), // Take header into account
+    bottom: sensitivity,
+    left: 0,
+    right: 0
+  }
+})
+
+function removeNeed (index) {
+  $q.dialog({
+    message: $t('remove_this_need'),
+    ok: {
+      flat: true,
+      label: $t('remove'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(() => {
+    store.dispatch('configuration/removeNeed', { index })
+  })
+}
+
+function updateNeed (index) {
+  $q.dialog({
+    message: $t('i_need'),
+    prompt: {
+      counter: true,
+      isValid: validate(Joi.string().trim().min(1)),
+      maxlength: 40,
+      model: store.getters['configuration/needs'][index],
+      outlined: true
+    },
+    ok: {
+      flat: true,
+      label: $t('save'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(need => {
+    store.dispatch('configuration/updateNeed', { index, need })
+  })
+}
 </script>

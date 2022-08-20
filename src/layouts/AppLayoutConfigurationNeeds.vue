@@ -14,59 +14,62 @@
   </q-layout>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { useStore } from 'vuex'
+import { useQuasar } from 'quasar'
+import { i18n } from '../boot/i18n'
+
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default defineComponent({
-  name: 'AppLayoutConfigurationNeeds',
-  methods: {
-    createNeed: function () {
-      this.$q.dialog({
-        message: this.$t('i_need'),
-        prompt: {
-          counter: true,
-          isValid: validate(Joi.string().trim().min(1)),
-          maxlength: 40,
-          model: '',
-          outlined: true
-        },
-        ok: {
-          flat: true,
-          label: this.$t('save'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(need => {
-        this.$store.dispatch('configuration/createNeed', { need })
-      })
+const store = useStore()
+const $q = useQuasar()
+const $t = i18n.global.t
+
+function createNeed () {
+  $q.dialog({
+    message: $t('i_need'),
+    prompt: {
+      counter: true,
+      isValid: validate(Joi.string().trim().min(1)),
+      maxlength: 40,
+      model: '',
+      outlined: true
     },
-    resetNeeds: function () {
-      this.$q.dialog({
-        message: this.$t('reset_my_needs'),
-        ok: {
-          color: 'negative',
-          flat: true,
-          icon: 'fas fa-exclamation-circle',
-          label: this.$t('reset'),
-          rounded: true
-        },
-        cancel: {
-          flat: true,
-          label: this.$t('cancel'),
-          rounded: true
-        },
-        persistent: true
-      }).onOk(() => {
-        this.$store.dispatch('configuration/resetNeeds')
-      })
-    }
-  }
-})
+    ok: {
+      flat: true,
+      label: $t('save'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(need => {
+    store.dispatch('configuration/createNeed', { need })
+  })
+}
+
+function resetNeeds () {
+  $q.dialog({
+    message: $t('reset_my_needs'),
+    ok: {
+      color: 'negative',
+      flat: true,
+      icon: 'fas fa-exclamation-circle',
+      label: $t('reset'),
+      rounded: true
+    },
+    cancel: {
+      flat: true,
+      label: $t('cancel'),
+      rounded: true
+    },
+    persistent: true
+  }).onOk(() => {
+    store.dispatch('configuration/resetNeeds')
+  })
+}
 </script>

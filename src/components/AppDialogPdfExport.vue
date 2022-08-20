@@ -25,64 +25,71 @@
   </q-dialog>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { computed, ref } from 'vue'
+import { useStore } from 'vuex'
+import { i18n } from '../boot/i18n'
+
 import pdfExport from '../helpers/pdf-export'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-export default defineComponent({
-  name: 'AppDialogPdfExport',
-  emits: [
-    'hide',
-    'ok'
-  ],
-  data () {
-    return {
-      fileName: this.$t('file_name_wheel_emotions'),
-      loading: false,
-      paperSize: 'a4',
-      paperSizeOptions: [
-        { label: this.$t('paper_size_a4'), value: 'a4' },
-        { label: this.$t('paper_size_letter'), value: 'letter' }
-      ]
-    }
-  },
-  computed: {
-    disable: function () {
-      const fileNameIsValid = validate(Joi.string().trim().min(1))
+const store = useStore()
+const $t = i18n.global.t
 
-      return (fileNameIsValid(this.fileName) !== true)
-    },
-    locale: function () {
-      return this.$i18n.locale
-    }
-  },
-  methods: {
-    cancelDialog: function () {
-      this.hide()
-    },
-    hide: function () {
-      this.$refs.dialog.hide()
-    },
-    hideDialog: function () {
-      this.$emit('hide')
-    },
-    show: function () {
-      this.$refs.dialog.show()
-    },
-    submitDialog: async function () {
-      this.loading = true
+const emit = defineEmits([
+  'hide',
+  'ok'
+])
 
-      await pdfExport(this.$store.getters['configuration/emotions'], this.$store.getters['configuration/needs'], this.$store.getters['configuration/actions'], this.fileName.trim(), this.paperSize)
+const fileName = ref($t('file_name_wheel_emotions'))
+const loading = ref(false)
+const paperSize = ref('a4')
 
-      this.loading = false
+const paperSizeOptions = ref([
+  { label: $t('paper_size_a4'), value: 'a4' },
+  { label: $t('paper_size_letter'), value: 'letter' }
+])
 
-      this.$emit('ok')
-      this.hide()
-    }
-  }
+const dialog = ref(null)
+
+const disable = computed(() => {
+  const fileNameIsValid = validate(Joi.string().trim().min(1))
+
+  return (fileNameIsValid(fileName.value) !== true)
 })
+
+const locale = computed(() => {
+  return i18n.global.locale
+})
+
+function cancelDialog () {
+  hide()
+}
+
+function hide () {
+  dialog.value.hide()
+}
+
+function hideDialog () {
+  emit('hide')
+}
+
+// eslint-disable-next-line no-unused-vars
+function show () {
+  dialog.value.show()
+}
+
+async function submitDialog () {
+  loading.value = true
+
+  await pdfExport(store.getters['configuration/emotions'], store.getters['configuration/needs'], store.getters['configuration/actions'], fileName.value.trim(), paperSize.value)
+
+  loading.value = false
+
+  emit('ok')
+  hide()
+}
 </script>
 
 <style lang="sass">

@@ -1,26 +1,21 @@
 <template>
-  <q-carousel-slide class="column items-center justify-center" :name="name">
+  <q-carousel-slide class="column items-center justify-center" :name="props.name">
     <div class="text-center">Rigolett</div>
     <q-btn class="icon-half text-half" flat icon="fas fa-globe" label="www.rigolett.com" no-caps rounded @click="open" />
   </q-carousel-slide>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
 import { openURL } from 'quasar'
 
-export default defineComponent({
-  name: 'AppCarouselSlideConcept',
-  props: {
-    name: {
-      type: String,
-      default: ''
-    }
-  },
-  methods: {
-    open: function () {
-      openURL('http://www.rigolett.com/')
-    }
+const props = defineProps({
+  name: {
+    type: String,
+    default: ''
   }
 })
+
+function open () {
+  openURL('http://www.rigolett.com/')
+}
 </script>
