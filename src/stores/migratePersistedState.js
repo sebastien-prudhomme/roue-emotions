@@ -1,6 +1,8 @@
 import { i18n } from '../boot/i18n'
 
-export default function (storage) {
+export default function () {
+  const storage = localStorage
+
   storage.setItem('@@', 1)
   storage.removeItem('@@')
 
@@ -45,6 +47,22 @@ export default function (storage) {
       state = newState
     }
 
-    storage.setItem('vuex', JSON.stringify(state))
+    if (state.application.schema === '1.4.0') {
+      const newState = {}
+
+      newState.application = {
+        schema: '1.5.0',
+        version: state.application.version
+      }
+
+      newState.configuration = state.configuration
+
+      state = newState
+    }
+
+    storage.setItem('application', JSON.stringify(state.application))
+    storage.setItem('configuration', JSON.stringify(state.configuration))
+
+    storage.removeItem('vuex')
   }
 }

@@ -15,13 +15,13 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
 import AppDialogIconText from 'components/AppDialogIconText'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
@@ -32,7 +32,7 @@ function createEmotion () {
       message: $t('i_feel')
     }
   }).onOk(emotion => {
-    store.dispatch('configuration/createEmotion', { emotion })
+    configurationStore.createEmotion({ emotion })
   })
 }
 
@@ -53,7 +53,7 @@ function resetEmotions () {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/resetEmotions')
+    configurationStore.resetEmotions()
   })
 }
 </script>

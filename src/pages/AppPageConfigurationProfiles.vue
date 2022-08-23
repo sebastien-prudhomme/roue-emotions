@@ -27,23 +27,23 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
 const profileIndex = computed(() => {
-  return store.state.configuration.profileIndex
+  return configurationStore.profileIndex
 })
 
 const profiles = computed(() => {
-  return store.state.configuration.profiles
+  return configurationStore.profiles
 })
 
 function removeProfile (index) {
@@ -61,12 +61,12 @@ function removeProfile (index) {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/removeProfile', { index })
+    configurationStore.removeProfile({ index })
   })
 }
 
 function setProfileIndex (profileIndex) {
-  store.dispatch('configuration/setProfileIndex', { profileIndex })
+  configurationStore.setProfileIndex({ profileIndex })
 }
 
 function updateProfile (index) {
@@ -76,7 +76,7 @@ function updateProfile (index) {
       counter: true,
       isValid: validate(Joi.string().trim().min(1)),
       maxlength: 10,
-      model: store.state.configuration.profiles[index].name,
+      model: configurationStore.profiles[index].name,
       outlined: true
     },
     ok: {
@@ -91,7 +91,7 @@ function updateProfile (index) {
     },
     persistent: true
   }).onOk(profile => {
-    store.dispatch('configuration/updateProfile', { index, profile })
+    configurationStore.updateProfile({ index, profile })
   })
 }
 </script>

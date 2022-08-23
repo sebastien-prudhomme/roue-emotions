@@ -15,14 +15,14 @@
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
@@ -48,7 +48,7 @@ function createAction () {
     },
     persistent: true
   }).onOk(action => {
-    store.dispatch('configuration/createAction', { action })
+    configurationStore.createAction({ action })
   })
 }
 
@@ -69,7 +69,7 @@ function resetActions () {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/resetActions')
+    configurationStore.resetActions()
   })
 }
 </script>

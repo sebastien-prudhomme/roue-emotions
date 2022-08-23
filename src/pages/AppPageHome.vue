@@ -16,7 +16,8 @@
 
 <script setup>
 import { computed, onMounted } from 'vue'
-import { useStore } from 'vuex'
+import { useApplicationStore } from 'stores/application'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 
 import AppCarousel from 'components/AppCarousel'
@@ -27,27 +28,28 @@ import AppDialogWelcome from 'components/AppDialogWelcome'
 import semver from 'semver'
 import packageJSON from '../../package.json'
 
-const store = useStore()
+const applicationStore = useApplicationStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 
 const emotions = computed(() => {
-  return store.getters['configuration/emotions']
+  return configurationStore.emotions
 })
 
 const needs = computed(() => {
-  return store.getters['configuration/needs']
+  return configurationStore.needs
 })
 
 const actions = computed(() => {
-  return store.getters['configuration/actions']
+  return configurationStore.actions
 })
 
 onMounted(() => {
-  if (store.state.application.version === null || semver.lt(store.state.application.version, packageJSON.version)) {
+  if (applicationStore.version === null || semver.lt(applicationStore.version, packageJSON.version)) {
     $q.dialog({
       component: AppDialogWelcome
     }).onOk(() => {
-      store.commit('application/setVersion', { version: packageJSON.version })
+      applicationStore.version = packageJSON.version
     })
   }
 })

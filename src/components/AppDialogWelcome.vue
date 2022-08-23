@@ -24,12 +24,12 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useApplicationStore } from 'stores/application'
 import { i18n } from '../boot/i18n'
 
 import semver from 'semver'
 
-const store = useStore()
+const applicationStore = useApplicationStore()
 const $te = i18n.global.te
 const $tm = i18n.global.tm
 
@@ -41,14 +41,14 @@ const emit = defineEmits([
 const dialog = ref(null)
 
 const haveVersion = computed(() => {
-  return store.state.application.version !== null
+  return applicationStore.version !== null
 })
 
 const releaseNotes = computed(() => {
   let versionsSorted = semver.rsort(versions.value)
 
-  if (store.state.application.version !== null) {
-    versionsSorted = versionsSorted.filter(version => semver.gt(version, store.state.application.version))
+  if (applicationStore.version !== null) {
+    versionsSorted = versionsSorted.filter(version => semver.gt(version, applicationStore.version))
   }
 
   const releaseNotes = versionsSorted.reduce((accumulator, version) => {

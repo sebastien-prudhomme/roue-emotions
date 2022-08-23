@@ -35,27 +35,27 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
 import AppDialogIconText from 'components/AppDialogIconText'
 import VueDraggable from 'vuedraggable'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
 const emotionElements = computed({
   get () {
-    const emotions = store.getters['configuration/emotions']
+    const emotions = configurationStore.emotions
 
     return emotions.map((emotion, index) => ({ emotion, index }))
   },
   set (emotionElements) {
     const emotions = emotionElements.map(emotionElement => emotionElement.emotion)
 
-    store.commit('configuration/setEmotions', { emotions })
+    configurationStore.setEmotions({ emotions })
   }
 })
 
@@ -87,12 +87,12 @@ function removeEmotion (index) {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/removeEmotion', { index })
+    configurationStore.removeEmotion({ index })
   })
 }
 
 function updateEmotion (index) {
-  const emotion = store.getters['configuration/emotions'][index]
+  const emotion = configurationStore.emotions[index]
 
   $q.dialog({
     component: AppDialogIconText,
@@ -102,7 +102,7 @@ function updateEmotion (index) {
       initialText: emotion.text
     }
   }).onOk(emotion => {
-    store.dispatch('configuration/updateEmotion', { index, emotion })
+    configurationStore.updateEmotion({ index, emotion })
   })
 }
 </script>

@@ -41,12 +41,12 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 
 import AppDialogPdfExport from 'components/AppDialogPdfExport'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 
 const drawerVisible = ref(false)
@@ -59,7 +59,7 @@ const drawerWidth = computed(() => {
 })
 
 const profileInitial = computed(() => {
-  return store.state.configuration.profiles[store.state.configuration.profileIndex].name.substring(0, 1).toUpperCase()
+  return configurationStore.profiles[configurationStore.profileIndex].name.substring(0, 1).toUpperCase()
 })
 
 function pdfExport () {

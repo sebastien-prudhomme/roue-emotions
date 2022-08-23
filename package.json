@@ -18,14 +18,14 @@
     "joi": "17.6.0",
     "langtag-utils": "2.0.2",
     "pdfkit": "0.13.0",
+    "pinia": "2.0.20",
+    "pinia-plugin-persistedstate": "2.1.1",
     "quasar": "2.7.5",
     "semver": "7.3.7",
     "vue": "3.2.37",
     "vue-i18n": "9.1.10",
     "vue-router": "4.1.1",
     "vuedraggable": "4.1.0",
-    "vuex": "4.0.2",
-    "vuex-persistedstate": "4.1.0",
     "whatwg-fetch": "3.6.2"
   },
   "devDependencies": {

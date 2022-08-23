@@ -32,7 +32,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
@@ -41,20 +41,20 @@ import VueDraggable from 'vuedraggable'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
 const needElements = computed({
   get () {
-    const needs = store.getters['configuration/needs']
+    const needs = configurationStore.needs
 
     return needs.map((need, index) => ({ need, index }))
   },
   set (needElements) {
     const needs = needElements.map(needElement => needElement.need)
 
-    store.commit('configuration/setNeeds', { needs })
+    configurationStore.setNeeds({ needs })
   }
 })
 
@@ -86,7 +86,7 @@ function removeNeed (index) {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/removeNeed', { index })
+    configurationStore.removeNeed({ index })
   })
 }
 
@@ -97,7 +97,7 @@ function updateNeed (index) {
       counter: true,
       isValid: validate(Joi.string().trim().min(1)),
       maxlength: 40,
-      model: store.getters['configuration/needs'][index],
+      model: configurationStore.needs[index],
       outlined: true
     },
     ok: {
@@ -112,7 +112,7 @@ function updateNeed (index) {
     },
     persistent: true
   }).onOk(need => {
-    store.dispatch('configuration/updateNeed', { index, need })
+    configurationStore.updateNeed({ index, need })
   })
 }
 </script>

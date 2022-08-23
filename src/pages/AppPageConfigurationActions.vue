@@ -32,7 +32,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
@@ -41,20 +41,20 @@ import VueDraggable from 'vuedraggable'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $q = useQuasar()
 const $t = i18n.global.t
 
 const actionElements = computed({
   get () {
-    const actions = store.getters['configuration/actions']
+    const actions = configurationStore.actions
 
     return actions.map((action, index) => ({ action, index }))
   },
   set (actionElements) {
     const actions = actionElements.map(actionsElement => actionsElement.action)
 
-    store.commit('configuration/setActions', { actions })
+    configurationStore.setActions({ actions })
   }
 })
 
@@ -86,7 +86,7 @@ function removeAction (index) {
     },
     persistent: true
   }).onOk(() => {
-    store.dispatch('configuration/removeAction', { index })
+    configurationStore.removeAction({ index })
   })
 }
 
@@ -97,7 +97,7 @@ function updateAction (index) {
       counter: true,
       isValid: validate(Joi.string().trim().min(1)),
       maxlength: 40,
-      model: store.getters['configuration/actions'][index],
+      model: configurationStore.actions[index],
       outlined: true
     },
     ok: {
@@ -112,7 +112,7 @@ function updateAction (index) {
     },
     persistent: true
   }).onOk(action => {
-    store.dispatch('configuration/updateAction', { index, action })
+    configurationStore.updateAction({ index, action })
   })
 }
 </script>

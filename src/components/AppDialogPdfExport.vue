@@ -27,14 +27,14 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 import { i18n } from '../boot/i18n'
 
 import pdfExport from '../helpers/pdf-export'
 import validate from '../helpers/validate'
 import Joi from 'joi'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 const $t = i18n.global.t
 
 const emit = defineEmits([
@@ -83,7 +83,7 @@ function show () {
 async function submitDialog () {
   loading.value = true
 
-  await pdfExport(store.getters['configuration/emotions'], store.getters['configuration/needs'], store.getters['configuration/actions'], fileName.value.trim(), paperSize.value)
+  await pdfExport(configurationStore.emotions, configurationStore.needs, configurationStore.actions, fileName.value.trim(), paperSize.value)
 
   loading.value = false
 

@@ -23,11 +23,11 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
+import { useConfigurationStore } from 'stores/configuration'
 
-const store = useStore()
+const configurationStore = useConfigurationStore()
 
 const profileName = computed(() => {
-  return store.state.configuration.profiles[store.state.configuration.profileIndex].name
+  return configurationStore.profiles[configurationStore.profileIndex].name
 })
 </script>
