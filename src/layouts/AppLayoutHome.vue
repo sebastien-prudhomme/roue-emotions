@@ -44,7 +44,7 @@ import { computed, ref } from 'vue'
 import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 
-import AppDialogPdfExport from 'components/AppDialogPdfExport'
+import AppDialogPdfExport from 'components/AppDialogPdfExport.vue'
 
 const configurationStore = useConfigurationStore()
 const $q = useQuasar()

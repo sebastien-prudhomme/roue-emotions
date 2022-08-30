@@ -26,12 +26,12 @@
 import { computed } from 'vue'
 import { openURL } from 'quasar'
 
-import AppCarousel from 'components/AppCarousel'
-import AppCarouselSlideConcept from 'components/AppCarouselSlideConcept'
-import AppCarouselSlideCreditFont from 'components/AppCarouselSlideCreditFont'
-import AppCarouselSlideCreditOpenmoji from 'components/AppCarouselSlideCreditOpenmoji'
-import AppCarouselSlideCreditQuasar from 'components/AppCarouselSlideCreditQuasar'
-import AppCarouselSlideEditor from 'components/AppCarouselSlideEditor'
+import AppCarousel from 'components/AppCarousel.vue'
+import AppCarouselSlideConcept from 'components/AppCarouselSlideConcept.vue'
+import AppCarouselSlideCreditFont from 'components/AppCarouselSlideCreditFont.vue'
+import AppCarouselSlideCreditOpenmoji from 'components/AppCarouselSlideCreditOpenmoji.vue'
+import AppCarouselSlideCreditQuasar from 'components/AppCarouselSlideCreditQuasar.vue'
+import AppCarouselSlideEditor from 'components/AppCarouselSlideEditor.vue'
 
 import packageJSON from '../../package.json'
 

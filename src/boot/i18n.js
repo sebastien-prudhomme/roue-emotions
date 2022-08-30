@@ -5,6 +5,7 @@ import { lookup, navigatorLanguages } from 'langtag-utils'
 
 const i18n = createI18n({
   locale: lookup(Object.keys(messages), navigatorLanguages(), 'en-US'),
+  globalInjection: true,
   messages
 })
 

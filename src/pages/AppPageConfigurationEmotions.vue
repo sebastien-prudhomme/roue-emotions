@@ -39,7 +39,7 @@ import { useConfigurationStore } from 'stores/configuration'
 import { useQuasar } from 'quasar'
 import { i18n } from '../boot/i18n'
 
-import AppDialogIconText from 'components/AppDialogIconText'
+import AppDialogIconText from 'components/AppDialogIconText.vue'
 import VueDraggable from 'vuedraggable'
 
 const configurationStore = useConfigurationStore()
